@@ -1,63 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>dolma | hello</title>
 
-  <!-- body + pixel fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-    rel="stylesheet"
-  >
   <style>
+    /* custom fonts */
+    @font-face {
+      font-family: 'Orbit';
+      src: url('font_orbit.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Pixlefy';
+      src: url('font_pixlefy.ttf') format('truetype');
+    }
+
     :root {
       --bg: #050505;
       --ink: #f7f7f7;
-      --accent: #e72e2e;
+      --accent: #ff2e2e;
+      --body: 'Orbit', sans-serif;
+      --pixel: 'Pixlefy', monospace;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: var(--bg) url('assets/port_bg.png') no-repeat center fixed;
-      color: var(--ink);
-      font-family: Helvetica, Arial, sans-serif;
-      text-align: center;
+      min-height:100vh;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center;
+      background: var(--bg) url('assets/port_bg.png') repeat fixed;
       cursor: url('assets/port_cursor.png') 4 4, auto;
+      color: var(--ink);
+      font-family: var(--body);
+      font-size:20px; line-height:1.5; letter-spacing:.6px;
+      padding:1.5rem;
     }
     h1 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 2.5rem;
-      letter-spacing: 2px;
+      font-family: var(--pixel);
+      font-size:3rem;
+      letter-spacing:2px;
       color: var(--accent);
-      margin-bottom: 16px;
+      margin-bottom:1rem;
+      text-transform:lowercase;
     }
     p {
-      max-width: 360px;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 32px;
-      opacity: 0.9;
+      max-width:400px;
+      margin-bottom:1rem;
+      opacity:.9;
+      text-transform:lowercase;
     }
     .btn {
-      display: inline-block;
-      margin: 8px 12px;
-      padding: 12px 24px;
-      border: 1px solid var(--accent);
+      font-family: var(--pixel);
+      font-size:1rem;
+      letter-spacing:1px;
+      display:inline-block;
+      margin:.75rem;
+      padding:1rem 2rem;
+      border:2px solid var(--accent);
       color: var(--ink);
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.75rem;
-      text-decoration: none;
-      letter-spacing: 1px;
-      transition: background 0.3s, color 0.3s;
+      text-decoration:none;
+      transition:background .3s, color .3s;
+      text-transform:lowercase;
     }
     .btn:hover {
       background: var(--accent);
@@ -68,13 +72,10 @@
 <body>
 
   <h1>hello</h1>
-  <p>
-    i’m dolma. welcome to my portfolio. you can browse my work or check out my résumé.
-  </p>
-  <div>
-    <a class="btn" href="resume.html">résumé</a>
-    <a class="btn" href="portfolio.html">portfolio</a>
-  </div>
+  <p>hey i’m dolma, budding graphic designer exploring grainy textures, glitch aesthetics and micro animations.</p>
+  <p>browse my portfolio for static & motion work, or view my résumé for background & skills.</p>
+  <a class="btn" href="portfolio.html">portfolio</a>
+  <a class="btn" href="resume.html">résumé</a>
 
 </body>
 </html>
