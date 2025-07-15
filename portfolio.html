@@ -2,159 +2,151 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>dolma rajkhowa — portfolio</title>
   <style>
-    /*──────────────────────────────────────────
-      1. Fonts
-    ──────────────────────────────────────────*/
+    /* 1. Custom fonts */
     @font-face {
-      font-family: "Orbit";
-      src: url("font_orbit.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
+      font-family: 'Orbit';
+      src: url('assets/font_orbit.ttf') format('truetype');
     }
     @font-face {
-      font-family: "Pixlefy";
-      src: url("font_pixlefy.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
+      font-family: 'Pixlefy';
+      src: url('assets/font_pixlefy.ttf') format('truetype');
     }
 
-    /*──────────────────────────────────────────
-      2. Variables & Reset
-    ──────────────────────────────────────────*/
-    :root {
-      --bg: #000;
-      --ink: #fff;
-      --accent: #f22;
-    }
+    /* 2. Reset & base styles */
     *, *::before, *::after {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       box-sizing: border-box;
     }
-
-    /*──────────────────────────────────────────
-      3. Base Styles
-    ──────────────────────────────────────────*/
     body {
-      min-height: 100vh;
-      background: url("assets/port_bg.png") center/cover no-repeat fixed;
-      cursor: url("assets/port_cursor.png") 16 16, auto;
-      font-family: "Orbit", sans-serif;
-      color: var(--ink);
+      background: url('assets/port_bg.png') center/cover fixed no-repeat;
+      cursor: url('assets/port_cursor.png') 16 16, auto;
+      font-family: 'Orbit', sans-serif;
+      color: #f7f7f7;
       line-height: 1.4;
-      letter-spacing: 0.5px;
-      padding: 2rem;
-    }
-    h1, h2 {
-      font-family: "Pixlefy", monospace;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1rem;
+      padding: 1rem 0;
     }
     h1 {
+      font-family: 'Pixlefy', monospace;
       font-size: 2.5rem;
+      letter-spacing: 1px;
       text-align: center;
-      margin-bottom: 2rem;
+      margin: 1.5rem 0;
+      color: #ff2e2e;
+      text-transform: lowercase;
+    }
+    h2 {
+      font-family: 'Pixlefy', monospace;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 1rem 1rem 0.5rem;
+      color: #ff2e2e;
     }
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
-    /*──────────────────────────────────────────
-      4. Gallery Grid
-    ──────────────────────────────────────────*/
-    .gallery {
+    /* 3. Grid container */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-auto-rows: auto;
+      grid-auto-flow: row dense;
+      padding: 0 1rem;
     }
-    .gallery img,
-    .gallery video {
-      width: 100%;
+
+    /* 4. Grid items */
+    .item {
+      overflow: hidden;
+    }
+    .item img,
+    .item video {
       display: block;
-      border: 2px solid var(--ink);
-    }
-    .gallery video {
-      aspect-ratio: 16/9;
-      object-fit: cover;
+      width: 100%;
+      height: auto;
+      border: 2px solid #ff2e2e;
     }
   </style>
 </head>
 <body>
+
   <h1>portfolio</h1>
 
-  <section id="branding">
+  <!-- BRANDING -->
+  <section>
     <h2>branding</h2>
-    <div class="gallery">
-      <a href="assets/br_banner_1.png"><img src="assets/br_banner_1.png" alt="Banner"></a>
-      <a href="assets/br_deck_1_cover.jpg"><img src="assets/br_deck_1_cover.jpg" alt="Deck 1 Cover"></a>
-      <a href="assets/br_deck_1_slider_b.jpg"><img src="assets/br_deck_1_slider_b.jpg" alt="Deck 1 B"></a>
-      <a href="assets/br_deck_1_slider_c.jpg"><img src="assets/br_deck_1_slider_c.jpg" alt="Deck 1 C"></a>
-      <a href="assets/br_deck_2_cover.jpg"><img src="assets/br_deck_2_cover.jpg" alt="Deck 2 Cover"></a>
-      <a href="assets/br_deck_2_slider_b.png"><img src="assets/br_deck_2_slider_b.png" alt="Deck 2 B"></a>
-      <a href="assets/br_deck_2_slider_c.png"><img src="assets/br_deck_2_slider_c.png" alt="Deck 2 C"></a>
-      <a href="assets/br_logo_1_a.png"><img src="assets/br_logo_1_a.png" alt="Logo 1A"></a>
-      <a href="assets/br_logo_1_b.png"><img src="assets/br_logo_1_b.png" alt="Logo 1B"></a>
-      <video src="assets/br_reel_1.mp4" controls playsinline></video>
-      <video src="assets/br_reel_2.mp4" controls playsinline></video>
+    <div class="grid">
+      <div class="item"><img src="assets/br_banner_1.png" alt=""></div>
+      <div class="item"><img src="assets/br_deck_1_cover.jpg" alt=""></div>
+      <div class="item"><img src="assets/br_deck_1_slider_b.jpg" alt=""></div>
+      <div class="item"><img src="assets/br_deck_1_slider_c.jpg" alt=""></div>
+      <div class="item"><video src="assets/br_reel_1.mp4" autoplay muted loop playsinline></video></div>
+      <div class="item"><video src="assets/br_reel_2.mp4" autoplay muted loop playsinline></video></div>
     </div>
   </section>
 
-  <section id="pitch-deck">
+  <!-- PITCH DECK -->
+  <section>
     <h2>pitch deck</h2>
-    <div class="gallery">
-      <a href="assets/pitch_deck_1_cover.jpg"><img src="assets/pitch_deck_1_cover.jpg" alt="Pitch Cover"></a>
-      <a href="assets/pitch_deck_1_slider_b.jpg"><img src="assets/pitch_deck_1_slider_b.jpg" alt="Pitch B"></a>
-      <a href="assets/pitch_deck_1_slider_c.jpg"><img src="assets/pitch_deck_1_slider_c.jpg" alt="Pitch C"></a>
+    <div class="grid">
+      <div class="item"><img src="assets/pitch_deck_1_cover.jpg" alt=""></div>
+      <div class="item"><img src="assets/pitch_deck_1_slider_b.jpg" alt=""></div>
+      <div class="item"><img src="assets/pitch_deck_1_slider_c.jpg" alt=""></div>
     </div>
   </section>
 
-  <section id="social-media">
+  <!-- SOCIAL MEDIA -->
+  <section>
     <h2>social media</h2>
-    <div class="gallery">
-      <a href="assets/sm_carousel_1_cover.jpg"><img src="assets/sm_carousel_1_cover.jpg" alt="Carousel 1 Cover"></a>
-      <a href="assets/sm_carousel_1_slider_b.jpg"><img src="assets/sm_carousel_1_slider_b.jpg" alt="Carousel 1 B"></a>
-      <a href="assets/sm_carousel_2_cover.jpg"><img src="assets/sm_carousel_2_cover.jpg" alt="Carousel 2 Cover"></a>
-      <a href="assets/sm_carousel_2_slider_b.png"><img src="assets/sm_carousel_2_slider_b.png" alt="Carousel 2 B"></a>
-      <a href="assets/sm_carousel_2_slider_c.png"><img src="assets/sm_carousel_2_slider_c.png" alt="Carousel 2 C"></a>
-      <a href="assets/sm_static_1.jpg"><img src="assets/sm_static_1.jpg" alt="Static 1"></a>
-      <a href="assets/sm_static_2.jpg"><img src="assets/sm_static_2.jpg" alt="Static 2"></a>
-      <a href="assets/sm_static_3.jpg"><img src="assets/sm_static_3.jpg" alt="Static 3"></a>
-      <a href="assets/sm_static_4_poster.png"><img src="assets/sm_static_4_poster.png" alt="Static 4"></a>
-      <a href="assets/sm_static_5_poster.jpg"><img src="assets/sm_static_5_poster.jpg" alt="Static 5"></a>
+    <div class="grid">
+      <div class="item"><img src="assets/sm_static_1.jpg" alt=""></div>
+      <div class="item"><img src="assets/sm_static_2.jpg" alt=""></div>
+      <div class="item"><img src="assets/sm_static_3.jpg" alt=""></div>
+      <div class="item"><img src="assets/sm_static_4_poster.png" alt=""></div>
+      <div class="item"><img src="assets/sm_static_5_poster.jpg" alt=""></div>
+      <div class="item"><img src="assets/sm_carousel_1_cover.jpg" alt=""></div>
+      <div class="item"><img src="assets/sm_carousel_1_slider_b.jpg" alt=""></div>
+      <div class="item"><img src="assets/sm_carousel_2_cover.jpg" alt=""></div>
+      <div class="item"><img src="assets/sm_carousel_2_slider_b.png" alt=""></div>
+      <div class="item"><img src="assets/sm_carousel_2_slider_c.png" alt=""></div>
     </div>
   </section>
 
-  <section id="textures">
+  <!-- TEXTURES -->
+  <section>
     <h2>textures</h2>
-    <div class="gallery">
-      <a href="assets/texture_bg_1.jpg"><img src="assets/texture_bg_1.jpg" alt="Texture 1"></a>
-      <a href="assets/texture_bg_2.jpg"><img src="assets/texture_bg_2.jpg" alt="Texture 2"></a>
-      <a href="assets/texture_bg_3.jpg"><img src="assets/texture_bg_3.jpg" alt="Texture 3"></a>
+    <div class="grid">
+      <div class="item"><img src="assets/texture_bg_1.jpg" alt=""></div>
+      <div class="item"><img src="assets/texture_bg_2.jpg" alt=""></div>
+      <div class="item"><img src="assets/texture_bg_3.jpg" alt=""></div>
     </div>
   </section>
 
-  <section id="visual-inspo">
+  <!-- VISUAL INSPO -->
+  <section>
     <h2>visual inspo</h2>
-    <div class="gallery">
-      <a href="assets/visualinspo_1.png"><img src="assets/visualinspo_1.png" alt="Inspo 1"></a>
-      <a href="assets/visualinspo_2.png"><img src="assets/visualinspo_2.png" alt="Inspo 2"></a>
+    <div class="grid">
+      <div class="item"><img src="assets/visualinspo_1.png" alt=""></div>
+      <div class="item"><img src="assets/visualinspo_2.png" alt=""></div>
     </div>
   </section>
 
-  <section id="wip">
+  <!-- WIP -->
+  <section>
     <h2>wip</h2>
-    <div class="gallery">
-      <a href="assets/wip_mascots.png"><img src="assets/wip_mascots.png" alt="Mascots"></a>
-      <a href="assets/wip_songcover.png"><img src="assets/wip_songcover.png" alt="Songcover"></a>
-      <a href="assets/wip_static_1.jpg"><img src="assets/wip_static_1.jpg" alt="Static"></a>
-      <video src="assets/wip_1.mp4" controls playsinline></video>
-      <video src="assets/wip_2.mp4" controls playsinline></video>
-      <video src="assets/wip_3.mp4" controls playsinline></video>
+    <div class="grid">
+      <div class="item"><img src="assets/wip_mascots.png" alt=""></div>
+      <div class="item"><img src="assets/wip_songcover.png" alt=""></div>
+      <div class="item"><img src="assets/wip_static_1.jpg" alt=""></div>
+      <div class="item"><video src="assets/wip_1.mp4" autoplay muted loop playsinline></video></div>
+      <div class="item"><video src="assets/wip_2.mp4" autoplay muted loop playsinline></video></div>
+      <div class="item"><video src="assets/wip_3.mp4" autoplay muted loop playsinline></video></div>
     </div>
   </section>
+
 </body>
 </html>
