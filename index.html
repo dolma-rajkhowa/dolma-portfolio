@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>dolma | hello</title>
+
+  <!-- body + pixel fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #050505;
+      --ink: #f7f7f7;
+      --accent: #e72e2e;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--bg) url('assets/port_bg.png') no-repeat center fixed;
+      color: var(--ink);
+      font-family: Helvetica, Arial, sans-serif;
+      text-align: center;
+      cursor: url('assets/port_cursor.png') 4 4, auto;
+    }
+    h1 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    p {
+      max-width: 360px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-block;
+      margin: 8px 12px;
+      padding: 12px 24px;
+      border: 1px solid var(--accent);
+      color: var(--ink);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>hello</h1>
+  <p>
+    i’m dolma. welcome to my portfolio. you can browse my work or check out my résumé.
+  </p>
+  <div>
+    <a class="btn" href="resume.html">résumé</a>
+    <a class="btn" href="portfolio.html">portfolio</a>
+  </div>
+
+</body>
+</html>
