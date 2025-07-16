@@ -5,243 +5,231 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>dolma rajkhowa – portfolio</title>
   <style>
-    /*─────────────────────────────────────────
-      1) CUSTOM FONTS
-    ─────────────────────────────────────────*/
+    /* 1) FONTS */
     @font-face {
       font-family: 'Orbit';
-      src: url('assets/font_orbit.ttf') format('truetype');
+      src: url('font_orbit.ttf') format('truetype');
     }
     @font-face {
       font-family: 'Pixelfy';
-      src: url('assets/font_pixlefy.ttf') format('truetype');
+      src: url('font_pixlefy.ttf') format('truetype');
     }
 
-    /*─────────────────────────────────────────
-      2) RESET & ROOT VARIABLES
-    ─────────────────────────────────────────*/
+    /* 2) RESET & ROOT COLORS */
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
       --red:   #ff0000;
-      --white: #ffffff;
-      --gray:  #cccccc;
+      --white: #fff;
     }
 
-    /*─────────────────────────────────────────
-      3) BODY & BACKGROUND
-    ─────────────────────────────────────────*/
+    /* 3) BODY + BG + CURSOR */
     body {
-      min-height:100vh;
-      background: url('assets/port_bg.png') center/cover no-repeat fixed;
-      cursor:     url('assets/port_cursor.png') 4 4, auto;
       font-family: 'Orbit', sans-serif;
       color: var(--white);
+      background: url('assets/port_bg.png') center/cover no-repeat fixed;
+      cursor:     url('assets/port_cursor.png') 4 4, auto;
       line-height:1.4;
-      padding-top:4rem; /* for fixed header */
-      padding-bottom:2rem; /* for footer */
+      padding-bottom:4rem;
     }
-    a { color:inherit; text-decoration:none; }
-
-    /*─────────────────────────────────────────
-      4) HEADER (sticky nav)
-    ─────────────────────────────────────────*/
-    header {
-      position:fixed;
-      top:0; left:0; width:100%;
-      background:rgba(0,0,0,0.8);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:.5rem 1rem;
-      z-index:100;
-    }
-    header h1 {
-      font-family:'Pixelfy',monospace;
-      font-size:1.5rem;
-      color:var(--red);
-      text-transform:uppercase;
-      letter-spacing:.1em;
-    }
-    nav a {
-      margin-left:1rem;
-      padding:.3rem .6rem;
-      border:2px solid var(--red);
-      font-family:'Pixelfy',monospace;
-      font-size:.9rem;
-      text-transform:uppercase;
-      color:var(--red);
-      transition:background .2s;
-    }
-    nav a:hover {
-      background:var(--red);
-      color:#000;
-    }
+    a { color: inherit; text-decoration:none; }
 
     main {
       width:90%;
       max-width:800px;
-      margin:0 auto;
+      margin:2rem auto;
     }
 
-    /*─────────────────────────────────────────
-      5) SECTION TITLES
-    ─────────────────────────────────────────*/
-    section {
-      margin-top:2rem;
+    /* 4) HEADER + NAV */
+    header { text-align:center; margin-bottom:2rem; }
+    header h1 {
+      font-family:'Pixelfy', monospace;
+      font-size:2.5rem;
+      color: var(--red);
+      text-transform:uppercase;
+      letter-spacing:.1em;
     }
+    nav a {
+      margin:0 .5rem;
+      padding:.4rem .8rem;
+      border:2px solid var(--red);
+      font-family:'Pixelfy',monospace;
+      text-transform:uppercase;
+      font-size:.9rem;
+      color: var(--red);
+    }
+
+    /* 5) GRID SECTIONS */
+    section { margin-bottom:2rem; }
     section h2 {
       font-family:'Pixelfy',monospace;
-      font-size:1.3rem;
-      color:var(--red);
-      margin-bottom:.8rem;
+      font-size:1.5rem;
+      color: var(--red);
+      margin-bottom:1rem;
       text-transform:uppercase;
     }
-
-    /*─────────────────────────────────────────
-      6) GRID LAYOUT
-    ─────────────────────────────────────────*/
     .grid {
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(48%,1fr));
-      gap:4px;
+      grid-template-columns: repeat(auto-fit,minmax(45%,1fr));
+      gap:1rem;
     }
     .cell {
       border:2px solid var(--red);
-      overflow:hidden;
-      position:relative;
     }
     .cell img,
     .cell video {
       display:block;
       width:100%;
-      height:100%;
+      height:auto;
       object-fit:cover;
     }
 
-    /* first texture rotated so all textures “match” */
+    /* rotate first texture so all three share the same orientation */
     #textures .cell:first-child img {
       transform: rotate(90deg);
     }
 
-    /*─────────────────────────────────────────
-      7) FORCE 4:5 FOR WIP
-    ─────────────────────────────────────────*/
-    #wip .cell {
+    /* force wip items to 4:5 ratio */
+    #wip .cell img,
+    #wip .cell video {
       aspect-ratio:4/5;
+      width:100%;
+      object-fit:cover;
     }
 
-    /*─────────────────────────────────────────
-      8) FOOTER
-    ─────────────────────────────────────────*/
-    footer {
-      text-align:center;
-      padding:.5rem 1rem;
+    /* 6) SHOW-MORE BUTTON */
+    #show-more {
+      display:block;
+      margin:2rem auto;
+      padding:.6rem 1.2rem;
+      border:2px solid var(--red);
+      background:none;
+      color: var(--red);
       font-family:'Orbit',sans-serif;
-      font-size:.85rem;
-      color:var(--gray);
-      border-top:1px solid var(--gray);
-      margin-top:2rem;
+      cursor:pointer;
     }
-    footer a { color:var(--gray); }
+
+    /* 7) FOOTER */
+    footer {
+      position:fixed;
+      bottom:0;
+      width:100%;
+      background:rgba(0,0,0,.6);
+      text-align:center;
+      padding:.5rem 0;
+      font-size:.85rem;
+    }
+    footer a { color: var(--red); }
   </style>
 </head>
 <body>
+  <main>
+    <header>
+      <h1>portfolio</h1>
+      <nav>
+        <a href="index.html">home</a>
+        <a href="resume.html">résumé</a>
+      </nav>
+    </header>
 
-<header>
-  <h1>portfolio</h1>
-  <nav>
-    <a href="index.html">home</a>
-    <a href="resume.html">résumé</a>
-  </nav>
-</header>
-
-<main>
-
-  <!-- 1) PITCH DECK -->
-  <section id="pitch-deck">
-    <h2>pitch deck</h2>
-    <div class="grid">
-      <div class="cell">
-        <img src="assets/pitch_deck_1_cover.jpg" alt="Pitch Deck: Cover">
+    <!-- 1) PITCH DECK -->
+    <section id="pitch-deck">
+      <h2>pitch deck</h2>
+      <div class="grid">
+        <div class="cell">
+          <img src="assets/pitch_deck_1_cover.jpg"    alt="pitch cover">
+        </div>
+        <div class="cell">
+          <img src="assets/pitch_deck_1_slider_b.jpg" alt="pitch slide b">
+        </div>
+        <div class="cell">
+          <img src="assets/pitch_deck_1_slider_c.jpg" alt="pitch slide c">
+        </div>
       </div>
-      <div class="cell">
-        <img src="assets/pitch_deck_1_slider_b.jpg" alt="Pitch Deck: Slide B">
+    </section>
+
+    <!-- 2) TEXTURES -->
+    <section id="textures">
+      <h2>textures</h2>
+      <div class="grid">
+        <div class="cell">
+          <img src="assets/texture_bg_1.jpg" alt="texture 1">
+        </div>
+        <div class="cell">
+          <img src="assets/texture_bg_2.jpg" alt="texture 2">
+        </div>
+        <div class="cell">
+          <img src="assets/texture_bg_3.jpg" alt="texture 3">
+        </div>
       </div>
-      <div class="cell">
-        <img src="assets/pitch_deck_1_slider_c.jpg" alt="Pitch Deck: Slide C">
+    </section>
+
+    <!-- 3) BRANDING -->
+    <section id="branding">
+      <h2>branding</h2>
+      <div class="grid">
+        <div class="cell"><img   src="assets/br_banner_1.png"        alt="banner"></div>
+        <div class="cell"><img   src="assets/br_deck_1_cover.jpg"    alt="deck cover"></div>
+        <div class="cell"><img   src="assets/br_deck_1_slider_b.jpg" alt="deck slide b"></div>
+        <div class="cell"><img   src="assets/br_deck_1_slider_c.jpg" alt="deck slide c"></div>
+        <div class="cell"><img   src="assets/br_deck_2_cover.jpg"    alt="deck2 cover"></div>
+        <div class="cell"><img   src="assets/br_deck_2_slider_b.png" alt="deck2 slide b"></div>
+        <div class="cell"><img   src="assets/br_deck_2_slider_c.png" alt="deck2 slide c"></div>
+        <div class="cell"><img   src="assets/br_logo_1_a.png"        alt="logo a"></div>
+        <div class="cell"><img   src="assets/br_logo_1_b.png"        alt="logo b"></div>
+        <div class="cell"><video src="assets/br_reel_1.mp4" controls></video></div>
+        <div class="cell"><video src="assets/br_reel_2.mp4" controls></video></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 2) TEXTURES -->
-  <section id="textures">
-    <h2>textures</h2>
-    <div class="grid">
-      <div class="cell">
-        <img src="assets/texture_bg_1.jpg" alt="Texture 1">
+    <!-- 4) SOCIAL MEDIA -->
+    <section id="social-media">
+      <h2>social media</h2>
+      <div class="grid">
+        <div class="cell"><img src="assets/sm_static_1.jpg"          alt="static1"></div>
+        <div class="cell"><img src="assets/sm_static_2.jpg"          alt="static2"></div>
+        <div class="cell"><img src="assets/sm_static_3.jpg"          alt="static3"></div>
+        <div class="cell"><img src="assets/sm_static_4_poster.png"   alt="poster"></div>
+        <div class="cell"><img src="assets/sm_carousel_1_cover.jpg"  alt="carousel1 cover"></div>
+        <div class="cell"><img src="assets/sm_carousel_1_slider_b.jpg"alt="carousel1 slide b"></div>
+        <div class="cell"><img src="assets/sm_carousel_1_slider_c.jpg"alt="carousel1 slide c"></div>
+        <div class="cell"><img src="assets/sm_carousel_2_cover.jpg"  alt="carousel2 cover"></div>
+        <div class="cell"><img src="assets/sm_carousel_2_slider_b.png"alt="carousel2 slide b"></div>
+        <div class="cell"><img src="assets/sm_carousel_2_slider_c.png"alt="carousel2 slide c"></div>
       </div>
-      <div class="cell">
-        <img src="assets/texture_bg_2.jpg" alt="Texture 2">
+    </section>
+
+    <!-- 5) WIP -->
+    <section id="wip">
+      <h2>wip</h2>
+      <div class="grid">
+        <div class="cell"><img   src="assets/wip_mascots.png"   alt="mascots"></div>
+        <div class="cell"><img   src="assets/wip_songcover.png" alt="songcover"></div>
+        <div class="cell"><img   src="assets/wip_static_1.jpg"  alt="static"></div>
+        <div class="cell"><video src="assets/wip_1.mp4" controls></video></div>
+        <div class="cell"><video src="assets/wip_2.mp4" controls></video></div>
+        <div class="cell"><video src="assets/wip_3.mp4" controls></video></div>
       </div>
-      <div class="cell">
-        <img src="assets/texture_bg_3.jpg" alt="Texture 3">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 3) BRANDING -->
-  <section id="branding">
-    <h2>branding</h2>
-    <div class="grid">
-      <div class="cell"><img src="assets/br_banner_1.png"         alt="Banner"></div>
-      <div class="cell"><img src="assets/br_deck_1_cover.jpg"     alt="Brand Deck Cover"></div>
-      <div class="cell"><img src="assets/br_deck_1_slider_b.jpg"  alt="Brand Deck Slide B"></div>
-      <div class="cell"><img src="assets/br_deck_1_slider_c.jpg"  alt="Brand Deck Slide C"></div>
-      <div class="cell"><img src="assets/br_deck_2_cover.jpg"     alt="Brand Deck 2 Cover"></div>
-      <div class="cell"><img src="assets/br_deck_2_slider_b.png"  alt="Brand Deck 2 Slide B"></div>
-      <div class="cell"><img src="assets/br_deck_2_slider_c.png"  alt="Brand Deck 2 Slide C"></div>
-      <div class="cell"><img src="assets/br_logo_1_a.png"         alt="Logo A"></div>
-      <div class="cell"><img src="assets/br_logo_1_b.png"         alt="Logo B"></div>
-      <div class="cell"><video src="assets/br_reel_1.mp4" controls></video></div>
-      <div class="cell"><video src="assets/br_reel_2.mp4" controls></video></div>
-    </div>
-  </section>
+    <button id="show-more">view more ↓</button>
+  </main>
 
-  <!-- 4) SOCIAL MEDIA -->
-  <section id="social-media">
-    <h2>social media</h2>
-    <div class="grid">
-      <div class="cell"><img src="assets/sm_static_1.jpg"          alt="SM Static 1"></div>
-      <div class="cell"><img src="assets/sm_static_2.jpg"          alt="SM Static 2"></div>
-      <div class="cell"><img src="assets/sm_static_3.jpg"          alt="SM Static 3"></div>
-      <div class="cell"><img src="assets/sm_static_4_poster.png"   alt="SM Poster 4"></div>
-      <div class="cell"><img src="assets/sm_static_5_poster.jpg"   alt="SM Poster 5"></div>
-      <div class="cell"><img src="assets/sm_carousel_1_cover.jpg"  alt="Carousel 1 Cover"></div>
-      <div class="cell"><img src="assets/sm_carousel_1_slider_b.jpg" alt="Carousel 1 Slide B"></div>
-      <div class="cell"><img src="assets/sm_carousel_2_cover.jpg"   alt="Carousel 2 Cover"></div>
-      <div class="cell"><img src="assets/sm_carousel_2_slider_b.png" alt="Carousel 2 Slide B"></div>
-      <div class="cell"><img src="assets/sm_carousel_2_slider_c.png" alt="Carousel 2 Slide C"></div>
-    </div>
-  </section>
+  <footer>
+    contact: <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a>
+  </footer>
 
-  <!-- 5) WIP -->
-  <section id="wip">
-    <h2>wip</h2>
-    <div class="grid">
-      <div class="cell"><img   src="assets/wip_mascots.png"   alt="Mascots"></div>
-      <div class="cell"><img   src="assets/wip_songcover.png" alt="Song Cover"></div>
-      <div class="cell"><img   src="assets/wip_static_1.jpg"  alt="WIP Static"></div>
-      <div class="cell"><video src="assets/wip_1.mp4" controls></video></div>
-      <div class="cell"><video src="assets/wip_2.mp4" controls></video></div>
-      <div class="cell"><video src="assets/wip_3.mp4" controls></video></div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  contact: <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a>
-</footer>
-
+  <script>
+    const wrap = document.querySelector('main .grid').parentNode; 
+    const btn  = document.getElementById('show-more');
+    btn.addEventListener('click', () => {
+      if (wrap.style.maxHeight === 'none') {
+        wrap.style.maxHeight = null;
+        btn.textContent = 'view more ↓';
+      } else {
+        wrap.style.maxHeight = 'none';
+        btn.textContent = 'show less ↑';
+      }
+    });
+  </script>
 </body>
 </html>
