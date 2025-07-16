@@ -3,41 +3,123 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Dolma Rajkhowa</title>
+  <title>dolma | hello</title>
 
-  <!-- FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    /*──────────────────────────────────────────
+      1. Self-hosted fonts
+    ──────────────────────────────────────────*/
+    @font-face {
+      font-family: 'Orbit';
+      src: url('assets/font_orbit.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Pixlefy';
+      src: url('assets/font_pixlefy.ttf') format('truetype');
+      font-display: swap;
+    }
 
-  <!-- SHARED STYLESHEET -->
-  <link rel="stylesheet" href="./style.css">
+    /*──────────────────────────────────────────
+      2. Variables & Reset
+    ──────────────────────────────────────────*/
+    :root {
+      --bg: #050505;
+      --ink: #f7f7f7;
+      --accent: #ff2e2e;
+      --body: 'Orbit', sans-serif;
+      --pixel: 'Pixlefy', monospace;
+    }
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    /*──────────────────────────────────────────
+      3. Base Styles
+    ──────────────────────────────────────────*/
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: var(--bg) url('assets/port_bg.png') center/cover no-repeat fixed;
+      cursor: url('assets/port_cursor.png') 4 4, auto;
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 1.125rem;
+      line-height: 1.5;
+      letter-spacing: 0.6px;
+      padding: 1.5rem;
+    }
+    h1 {
+      font-family: var(--pixel);
+      font-size: 3rem;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-transform: lowercase;
+    }
+    p {
+      max-width: 400px;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+      text-transform: lowercase;
+    }
+
+    /*──────────────────────────────────────────
+      4. Buttons
+    ──────────────────────────────────────────*/
+    .btn {
+      font-family: var(--pixel);
+      font-size: 1rem;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin: 0.75rem;
+      padding: 1rem 2rem;
+      border: 2px solid var(--accent);
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+      text-transform: lowercase;
+    }
+    .btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /*──────────────────────────────────────────
+      5. Footer Link (always bottom)
+    ──────────────────────────────────────────*/
+    footer {
+      margin-top: auto;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+      text-transform: lowercase;
+      opacity: 0.8;
+    }
+    footer a {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- STICKY NAV -->
-  <nav>
-    <a href="portfolio.html">View Portfolio</a>
-    <a href="resume.html">View Résumé</a>
-  </nav>
 
-  <!-- INTRO -->
-  <main>
-    <section id="intro">
-      <h1>Hello, I’m Dolma</h1>
-      <p>A former Economics undergrad turned designer—</p>
-      <p>I build visuals that work as hard as they look.</p>
-      <div class="btn-group">
-        <a class="btn" href="portfolio.html">Portfolio</a>
-        <a class="btn" href="resume.html">Résumé</a>
-      </div>
-    </section>
-  </main>
+  <h1>hello</h1>
+  <p>hey i’m dolma, budding graphic designer exploring grainy textures, glitch aesthetics and micro animations.</p>
+  <p>browse my portfolio for static & motion work, or view my résumé for background & skills.</p>
 
-  <!-- CONTACT FOOTER -->
-  <footer id="contact">
-    <p>Contact me at:</p>
-    <p><a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a> · 8368118218</p>
+  <div class="btn-group">
+    <a class="btn" href="portfolio.html">portfolio</a>
+    <a class="btn" href="resume.html">résumé</a>
+  </div>
+
+  <footer>
+    contact me at <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a> · 8368118218
   </footer>
+
 </body>
 </html>
