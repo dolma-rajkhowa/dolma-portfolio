@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>dolma rajkhowa – portfolio</title>
   <style>
-    /*────────── 1) FONTS ──────────*/
+    /*─────────────────────────────────────────
+      1) CUSTOM FONTS
+    ─────────────────────────────────────────*/
     @font-face {
       font-family: 'Orbit';
       src: url('assets/font_orbit.ttf') format('truetype');
@@ -15,7 +17,9 @@
       src: url('assets/font_pixlefy.ttf') format('truetype');
     }
 
-    /*────────── 2) RESET & ROOT ──────────*/
+    /*─────────────────────────────────────────
+      2) RESET & ROOT VARIABLES
+    ─────────────────────────────────────────*/
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
       --red:   #ff0000;
@@ -23,7 +27,9 @@
       --gray:  #cccccc;
     }
 
-    /*────────── 3) BODY & BG ──────────*/
+    /*─────────────────────────────────────────
+      3) BODY & BACKGROUND
+    ─────────────────────────────────────────*/
     body {
       min-height:100vh;
       background: url('assets/port_bg.png') center/cover no-repeat fixed;
@@ -31,190 +37,205 @@
       font-family: 'Orbit', sans-serif;
       color: var(--white);
       line-height:1.4;
-      padding-bottom:4rem; /* for footer */
+      padding-top:4rem; /* for fixed header */
+      padding-bottom:2rem; /* for footer */
     }
-    a { color: inherit; text-decoration: none; }
+    a { color:inherit; text-decoration:none; }
 
-    main {
-      width: 90%;
-      max-width:800px;
-      margin:2rem auto;
+    /*─────────────────────────────────────────
+      4) HEADER (sticky nav)
+    ─────────────────────────────────────────*/
+    header {
+      position:fixed;
+      top:0; left:0; width:100%;
+      background:rgba(0,0,0,0.8);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.5rem 1rem;
+      z-index:100;
     }
-
-    /*────────── 4) HEADER & NAV ──────────*/
-    header { text-align:center; margin-bottom:2rem; }
     header h1 {
-      font-family:'Pixelfy', monospace;
-      font-size:2.5rem;
-      color: var(--red);
-      letter-spacing:0.1em;
+      font-family:'Pixelfy',monospace;
+      font-size:1.5rem;
+      color:var(--red);
       text-transform:uppercase;
+      letter-spacing:.1em;
     }
     nav a {
-      display:inline-block;
-      margin:0 .5rem;
-      padding:.4rem .8rem;
+      margin-left:1rem;
+      padding:.3rem .6rem;
       border:2px solid var(--red);
-      font-family:'Pixelfy', monospace;
+      font-family:'Pixelfy',monospace;
       font-size:.9rem;
       text-transform:uppercase;
-      color: var(--red);
+      color:var(--red);
+      transition:background .2s;
+    }
+    nav a:hover {
+      background:var(--red);
+      color:#000;
     }
 
-    /*────────── 5) VIEW-MORE WRAPPER ──────────*/
-    .portfolio-grid {
-      overflow:hidden;
-      max-height: calc(100vh * 4);
-      transition: max-height .5s ease;
+    main {
+      width:90%;
+      max-width:800px;
+      margin:0 auto;
     }
 
-    /*────────── 6) SECTION TITLES ──────────*/
-    section { margin-bottom:3rem; }
+    /*─────────────────────────────────────────
+      5) SECTION TITLES
+    ─────────────────────────────────────────*/
+    section {
+      margin-top:2rem;
+    }
     section h2 {
-      font-family:'Pixelfy', monospace;
-      font-size:1.75rem;
-      color: var(--red);
-      margin-bottom:1rem;
+      font-family:'Pixelfy',monospace;
+      font-size:1.3rem;
+      color:var(--red);
+      margin-bottom:.8rem;
       text-transform:uppercase;
     }
 
-    /*────────── 7) GRID LAYOUT ──────────*/
+    /*─────────────────────────────────────────
+      6) GRID LAYOUT
+    ─────────────────────────────────────────*/
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(45%,1fr));
-      gap:1rem;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(48%,1fr));
+      gap:4px;
     }
     .cell {
       border:2px solid var(--red);
       overflow:hidden;
+      position:relative;
     }
     .cell img,
     .cell video {
       display:block;
       width:100%;
-      height:auto;
+      height:100%;
       object-fit:cover;
     }
-    /* for the first texture to match vertical feel */
+
+    /* first texture rotated so all textures “match” */
     #textures .cell:first-child img {
       transform: rotate(90deg);
     }
 
-    /*────────── 8) FORCE 4:5 FOR WIP ──────────*/
-    #wip .cell img,
-    #wip .cell video {
-      aspect-ratio: 4/5;
+    /*─────────────────────────────────────────
+      7) FORCE 4:5 FOR WIP
+    ─────────────────────────────────────────*/
+    #wip .cell {
+      aspect-ratio:4/5;
     }
 
-    /*────────── 9) VIEW MORE BUTTON ──────────*/
-    #show-more {
-      display:block;
-      margin:1rem auto 3rem;
-      padding:.6rem 1.2rem;
-      border:2px solid var(--red);
-      background:none;
-      font-family:'Orbit',sans-serif;
-      color: var(--red);
-      cursor:pointer;
-    }
-
-    /*────────── 10) FOOTER ──────────*/
+    /*─────────────────────────────────────────
+      8) FOOTER
+    ─────────────────────────────────────────*/
     footer {
-      position: fixed;
-      bottom:0; left:0; width:100%;
-      background: rgba(0,0,0,.6);
-      color: var(--gray);
+      text-align:center;
+      padding:.5rem 1rem;
       font-family:'Orbit',sans-serif;
       font-size:.85rem;
-      text-align:center;
-      padding:.5rem 0;
+      color:var(--gray);
+      border-top:1px solid var(--gray);
+      margin-top:2rem;
     }
-    footer a { color: var(--gray); }
+    footer a { color:var(--gray); }
   </style>
 </head>
 <body>
+
+<header>
+  <h1>portfolio</h1>
+  <nav>
+    <a href="index.html">home</a>
+    <a href="resume.html">résumé</a>
+  </nav>
+</header>
+
 <main>
-  <header>
-    <h1>portfolio</h1>
-    <nav>
-      <a href="index.html">home</a>
-      <a href="resume.html">résumé</a>
-    </nav>
-  </header>
 
-  <div class="portfolio-grid">
-
-    <!-- 1) Pitch Deck -->
-    <section id="pitch-deck">
-      <h2>pitch deck</h2>
-      <div class="grid">
-        <div class="cell"><img  src="assets/pitch_deck_1_cover.jpg"    alt=""></div>
-        <div class="cell"><img  src="assets/pitch_deck_1_slider_b.jpg" alt=""></div>
-        <div class="cell"><img  src="assets/pitch_deck_1_slider_c.jpg" alt=""></div>
+  <!-- 1) PITCH DECK -->
+  <section id="pitch-deck">
+    <h2>pitch deck</h2>
+    <div class="grid">
+      <div class="cell">
+        <img src="assets/pitch_deck_1_cover.jpg" alt="Pitch Deck: Cover">
       </div>
-    </section>
-
-    <!-- 2) Textures -->
-    <section id="textures">
-      <h2>textures</h2>
-      <div class="grid">
-        <div class="cell"><img src="assets/texture_bg_1.jpg" alt=""></div>
-        <div class="cell"><img src="assets/texture_bg_2.jpg" alt=""></div>
-        <div class="cell"><img src="assets/texture_bg_3.jpg" alt=""></div>
+      <div class="cell">
+        <img src="assets/pitch_deck_1_slider_b.jpg" alt="Pitch Deck: Slide B">
       </div>
-    </section>
-
-    <!-- 3) Branding -->
-    <section id="branding">
-      <h2>branding</h2>
-      <div class="grid">
-        <div class="cell"><img   src="assets/br_banner_1.png"         alt=""></div>
-        <div class="cell"><img   src="assets/br_deck_1_cover.jpg"     alt=""></div>
-        <div class="cell"><img   src="assets/br_deck_1_slider_b.jpg"  alt=""></div>
-        <div class="cell"><img   src="assets/br_deck_1_slider_c.jpg"  alt=""></div>
-        <div class="cell"><img   src="assets/br_deck_2_cover.jpg"     alt=""></div>
-        <div class="cell"><img   src="assets/br_deck_2_slider_b.png"  alt=""></div>
-        <div class="cell"><img   src="assets/br_deck_2_slider_c.png"  alt=""></div>
-        <div class="cell"><img   src="assets/br_logo_1_a.png"         alt=""></div>
-        <div class="cell"><img   src="assets/br_logo_1_b.png"         alt=""></div>
-        <div class="cell"><video src="assets/br_reel_1.mp4" controls></video></div>
-        <div class="cell"><video src="assets/br_reel_2.mp4" controls></video></div>
+      <div class="cell">
+        <img src="assets/pitch_deck_1_slider_c.jpg" alt="Pitch Deck: Slide C">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 4) Social Media -->
-    <section id="social-media">
-      <h2>social media</h2>
-      <div class="grid">
-        <div class="cell"><img src="assets/sm_static_1.jpg"          alt=""></div>
-        <div class="cell"><img src="assets/sm_static_2.jpg"          alt=""></div>
-        <div class="cell"><img src="assets/sm_static_3.jpg"          alt=""></div>
-        <div class="cell"><img src="assets/sm_static_4_poster.png"   alt=""></div>
-        <div class="cell"><img src="assets/sm_static_5_poster.jpg"   alt=""></div>
-        <div class="cell"><img src="assets/sm_carousel_1_cover.jpg"  alt=""></div>
-        <div class="cell"><img src="assets/sm_carousel_1_slider_b.jpg" alt=""></div>
-        <div class="cell"><img src="assets/sm_carousel_2_cover.jpg"   alt=""></div>
-        <div class="cell"><img src="assets/sm_carousel_2_slider_b.png" alt=""></div>
-        <div class="cell"><img src="assets/sm_carousel_2_slider_c.png" alt=""></div>
+  <!-- 2) TEXTURES -->
+  <section id="textures">
+    <h2>textures</h2>
+    <div class="grid">
+      <div class="cell">
+        <img src="assets/texture_bg_1.jpg" alt="Texture 1">
       </div>
-    </section>
-
-    <!-- 5) WIP -->
-    <section id="wip">
-      <h2>wip</h2>
-      <div class="grid">
-        <div class="cell"><img   src="assets/wip_mascots.png"   alt="" class=""></div>
-        <div class="cell"><img   src="assets/wip_songcover.png" alt="" class=""></div>
-        <div class="cell"><img   src="assets/wip_static_1.jpg"  alt="" class=""></div>
-        <div class="cell"><video src="assets/wip_1.mp4" controls class=""></video></div>
-        <div class="cell"><video src="assets/wip_2.mp4" controls class=""></video></div>
-        <div class="cell"><video src="assets/wip_3.mp4" controls class=""></video></div>
+      <div class="cell">
+        <img src="assets/texture_bg_2.jpg" alt="Texture 2">
       </div>
-    </section>
+      <div class="cell">
+        <img src="assets/texture_bg_3.jpg" alt="Texture 3">
+      </div>
+    </div>
+  </section>
 
-  </div>
+  <!-- 3) BRANDING -->
+  <section id="branding">
+    <h2>branding</h2>
+    <div class="grid">
+      <div class="cell"><img src="assets/br_banner_1.png"         alt="Banner"></div>
+      <div class="cell"><img src="assets/br_deck_1_cover.jpg"     alt="Brand Deck Cover"></div>
+      <div class="cell"><img src="assets/br_deck_1_slider_b.jpg"  alt="Brand Deck Slide B"></div>
+      <div class="cell"><img src="assets/br_deck_1_slider_c.jpg"  alt="Brand Deck Slide C"></div>
+      <div class="cell"><img src="assets/br_deck_2_cover.jpg"     alt="Brand Deck 2 Cover"></div>
+      <div class="cell"><img src="assets/br_deck_2_slider_b.png"  alt="Brand Deck 2 Slide B"></div>
+      <div class="cell"><img src="assets/br_deck_2_slider_c.png"  alt="Brand Deck 2 Slide C"></div>
+      <div class="cell"><img src="assets/br_logo_1_a.png"         alt="Logo A"></div>
+      <div class="cell"><img src="assets/br_logo_1_b.png"         alt="Logo B"></div>
+      <div class="cell"><video src="assets/br_reel_1.mp4" controls></video></div>
+      <div class="cell"><video src="assets/br_reel_2.mp4" controls></video></div>
+    </div>
+  </section>
 
-  <button id="show-more">view more ↓</button>
+  <!-- 4) SOCIAL MEDIA -->
+  <section id="social-media">
+    <h2>social media</h2>
+    <div class="grid">
+      <div class="cell"><img src="assets/sm_static_1.jpg"          alt="SM Static 1"></div>
+      <div class="cell"><img src="assets/sm_static_2.jpg"          alt="SM Static 2"></div>
+      <div class="cell"><img src="assets/sm_static_3.jpg"          alt="SM Static 3"></div>
+      <div class="cell"><img src="assets/sm_static_4_poster.png"   alt="SM Poster 4"></div>
+      <div class="cell"><img src="assets/sm_static_5_poster.jpg"   alt="SM Poster 5"></div>
+      <div class="cell"><img src="assets/sm_carousel_1_cover.jpg"  alt="Carousel 1 Cover"></div>
+      <div class="cell"><img src="assets/sm_carousel_1_slider_b.jpg" alt="Carousel 1 Slide B"></div>
+      <div class="cell"><img src="assets/sm_carousel_2_cover.jpg"   alt="Carousel 2 Cover"></div>
+      <div class="cell"><img src="assets/sm_carousel_2_slider_b.png" alt="Carousel 2 Slide B"></div>
+      <div class="cell"><img src="assets/sm_carousel_2_slider_c.png" alt="Carousel 2 Slide C"></div>
+    </div>
+  </section>
+
+  <!-- 5) WIP -->
+  <section id="wip">
+    <h2>wip</h2>
+    <div class="grid">
+      <div class="cell"><img   src="assets/wip_mascots.png"   alt="Mascots"></div>
+      <div class="cell"><img   src="assets/wip_songcover.png" alt="Song Cover"></div>
+      <div class="cell"><img   src="assets/wip_static_1.jpg"  alt="WIP Static"></div>
+      <div class="cell"><video src="assets/wip_1.mp4" controls></video></div>
+      <div class="cell"><video src="assets/wip_2.mp4" controls></video></div>
+      <div class="cell"><video src="assets/wip_3.mp4" controls></video></div>
+    </div>
+  </section>
 
 </main>
 
@@ -222,18 +243,5 @@
   contact: <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a>
 </footer>
 
-<script>
-  const wrap = document.querySelector('.portfolio-grid');
-  const btn  = document.getElementById('show-more');
-  btn.addEventListener('click', () => {
-    if (wrap.style.maxHeight === 'none') {
-      wrap.style.maxHeight = null;
-      btn.textContent = 'view more ↓';
-    } else {
-      wrap.style.maxHeight = 'none';
-      btn.textContent = 'show less ↑';
-    }
-  });
-</script>
 </body>
 </html>
