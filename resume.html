@@ -1,4 +1,4 @@
-<!doctype html>
+[16/07/25, 3:46:41 AM] Dolma Rajkhowa: <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -6,23 +6,16 @@
   <title>dolma | résumé</title>
 
   <style>
-    /*──────────────────────────────────────────
-      1. Self-hosted fonts
-    ──────────────────────────────────────────*/
+    /* custom fonts */
     @font-face {
       font-family: 'Orbit';
-      src: url('assets/font_orbit.ttf') format('truetype');
-      font-display: swap;
+      src: url('font_orbit.ttf') format('truetype');
     }
     @font-face {
       font-family: 'Pixlefy';
-      src: url('assets/font_pixlefy.ttf') format('truetype');
-      font-display: swap;
+      src: url('font_pixlefy.ttf') format('truetype');
     }
 
-    /*──────────────────────────────────────────
-      2. Variables & Reset
-    ──────────────────────────────────────────*/
     :root {
       --bg: #050505;
       --ink: #f7f7f7;
@@ -30,93 +23,71 @@
       --body: 'Orbit', sans-serif;
       --pixel: 'Pixlefy', monospace;
     }
-    *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
-    /*──────────────────────────────────────────
-      3. Base Styles
-    ──────────────────────────────────────────*/
     body {
-      min-height: 100vh;
-      background: var(--bg) url('assets/port_bg.png') center/cover no-repeat fixed;
+      min-height:100vh;
+      background: var(--bg) url('assets/port_bg.png') repeat fixed;
       cursor: url('assets/port_cursor.png') 4 4, auto;
       color: var(--ink);
       font-family: var(--body);
-      font-size: 1rem;
-      line-height: 1.5;
-      letter-spacing: 0.6px;
-      padding: 2rem 1rem;
-      text-transform: lowercase;
+      font-size:20px; line-height:1.5; letter-spacing:.6px;
+      padding:2rem 1rem;
+      text-transform:lowercase;
     }
     h1 {
       font-family: var(--pixel);
-      font-size: 2.5rem;
+      font-size:2.5rem;
       color: var(--accent);
-      text-align: center;
-      margin-bottom: 1rem;
+      text-align:center;
+      margin-bottom:1rem;
     }
     .contact {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1rem;
+      text-align:center;
+      margin-bottom:2rem;
+      font-size:1rem;
     }
-    .contact a {
-      color: var(--ink);
-      text-decoration: none;
-    }
+    .contact a { color:var(--ink); text-decoration:none; }
 
-    /*──────────────────────────────────────────
-      4. Dropdown Sections
-    ──────────────────────────────────────────*/
     details {
-      border: 1px solid var(--ink);
-      margin: 1.25rem 0;
-      overflow: hidden;
+      border:1px solid var(--ink);
+      margin:1.25rem 0;
+      overflow:hidden;
     }
     summary {
       font-family: var(--pixel);
-      font-size: 1rem;
-      letter-spacing: 1px;
-      list-style: none;
-      cursor: pointer;
-      padding: 0.75rem 1rem;
+      font-size:1rem;
+      letter-spacing:1px;
+      list-style:none;
+      cursor:pointer;
+      padding:0.75rem 1rem;
       background: var(--bg);
-      position: relative;
+      position:relative;
     }
-    summary::-webkit-details-marker { display: none; }
+    summary::-webkit-details-marker { display:none }
     summary::after {
-      content: '+';
-      position: absolute; right: 1rem; top: 0.75rem;
+      content:'+';
+      position:absolute; right:1rem; top:0.75rem;
       font-family: var(--pixel);
     }
-    details[open] summary::after {
-      content: '–';
-    }
+    details[open] summary::after { content:'–'; }
+
     .section {
-      padding: 0.75rem 1rem 1.5rem;
-      font-size: 1rem;
+      padding:0.75rem 1rem 1.5rem;
+      font-size:1rem;
     }
-    .section p {
-      margin-bottom: 1rem;
-    }
-    .section ul {
-      margin: 0.75rem 0 1rem 1.25rem;
-      list-style: none;
-    }
+    .section p { margin-bottom:1rem; }
+    .section ul { margin:0.75rem 0 1rem 1.25rem; list-style:none; }
     .section ul li {
-      margin-bottom: 0.5rem;
-      position: relative;
-      padding-left: 1.2rem;
+      margin-bottom:0.5rem;
+      position:relative;
+      padding-left:1.2rem;
     }
     .section ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
+      content:'•';
+      position:absolute;
+      left:0;
+      color:var(--accent);
     }
   </style>
 </head>
@@ -125,7 +96,7 @@
   <h1>résumé</h1>
   <p class="contact">
     dolma rajkhowa · mumbai<br>
-    <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a> · ig-dolma._r
+    <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a> · ig- dolma._r
   </p>
 
   <details open>
@@ -149,7 +120,41 @@
         <li>edited rough cuts in davinci resolve; scheduled posts & tracked metrics</li>
         <li>handled manual prop sourcing & basic set builds</li>
       </ul>
-      <!-- add other positions similarly -->
+
+      <p><strong>saras.care · comms intern</strong> <em>(melbourne · oct 2024–jan 2025)</em></p>
+      <ul>
+        <li>built & maintained artist roster for diwali programming</li>
+        <li>conducted sponsor research & pricing analysis</li>
+        <li>contributed to deck-making, one-pagers & visual formatting</li>
+        <li>managed internal communication with volunteer team</li>
+      </ul>
+
+      <p><strong>connectfor / rosy blue foundation · digital marketing intern</strong> <em>(mumbai · apr–jul 2023)</em></p>
+      <ul>
+        <li>wrote captions, emailers & newsletters</li>
+        <li>shot reels & event content; edited for instagram & youtube</li>
+        <li>designed graphics in canva; prepped carousels & ig posts</li>
+        <li>supported volunteer coordination & logistics</li>
+        <li>managed ngo outreach & lead generation</li>
+      </ul>
+
+      <p><strong>masters buddy · market research intern</strong> <em>(remote · apr–may 2023)</em></p>
+      <ul>
+        <li>analysed competitor content & pricing strategies</li>
+        <li>identified gaps in ad messaging & delivery</li>
+      </ul>
+
+      <p><strong>hamari pehchaan ngo & milaap · campaign volunteer</strong> <em>(remote · apr–may 2023)</em></p>
+      <ul>
+        <li>created copy, posters & visual assets for fundraiser pages</li>
+      </ul>
+
+      <p><strong>legal-lore · legal research intern</strong> <em>(remote · may–aug 2023)</em></p>
+      <ul>
+        <li>summarised high court & supreme court rulings</li>
+        <li>wrote 300-word newsletter briefs</li>
+        <li>formatted content for legal blog distribution</li>
+      </ul>
     </div>
   </details>
 
@@ -162,6 +167,7 @@
         <li>created design kits & content templates; managed 15-person crew</li>
         <li>co-curated after8 lineup & day panel; live-covered fest week</li>
       </ul>
+
       <p><strong>sceda drama club · club secretary</strong> <em>(2022–2025)</em></p>
       <ul>
         <li>wrote & directed original play at bhabha auditorium (800-seater)</li>
