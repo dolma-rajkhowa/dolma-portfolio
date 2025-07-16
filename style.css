@@ -2,25 +2,27 @@
   --bg: #000;
   --ink: #fff;
   --accent: #f22;
-  --pixel: 'VT323', monospace;
-  --body: 'Orbitron', sans-serif;
+  --body-font: 'OrbitCustom', sans-serif;
+  --pixel-font: 'PixlefyCustom', monospace;
 }
 
-/* MAKE FOOTER STICK TO BOTTOM */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: url('./assets/port_bg.png') center/cover no-repeat fixed;
-  color: var(--ink);
-  font-family: var(--body);
-  line-height: 1.4;
+/* 1. SELF-HOSTED FONTS */
+@font-face {
+  font-family: 'OrbitCustom';
+  src: url('./assets/font_orbit.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-main, section {
-  flex: 1;
+@font-face {
+  font-family: 'PixlefyCustom';
+  src: url('./assets/font_pixlefy.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* RESET */
+/* 2. RESET */
 *,
 *::before,
 *::after {
@@ -32,21 +34,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* FONTS & HEADINGS */
-@font-face {
-  font-family: 'Orbitron';
-  src: url('./assets/fonts/Orbitron-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
+/* 3. BASE STYLES */
+body {
+  background: url('./assets/port_bg.png') center/cover no-repeat fixed;
+  color: var(--ink);
+  font-family: var(--body-font);
+  line-height: 1.4;
+  padding-top: 4rem; /* space for sticky nav */
 }
-@font-face {
-  font-family: 'VT323';
-  src: url('./assets/fonts/VT323-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-}
+
+/* 4. TYPOGRAPHY */
 h1, h2, h3 {
-  font-family: var(--pixel);
+  font-family: var(--pixel-font);
   color: var(--accent);
   text-transform: uppercase;
   text-align: center;
@@ -64,7 +63,7 @@ h3 {
   margin: 1rem 0 0.5rem;
 }
 
-/* NAV */
+/* 5. NAV */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -77,7 +76,7 @@ nav {
   z-index: 1000;
 }
 nav a {
-  font-family: var(--pixel);
+  font-family: var(--pixel-font);
   color: var(--ink);
   text-decoration: none;
   font-size: 1rem;
@@ -86,7 +85,7 @@ nav a:hover {
   color: var(--accent);
 }
 
-/* INTRO BUTTONS */
+/* 6. INTRO BUTTONS */
 .btn-group {
   margin-top: 1.5rem;
   display: flex;
@@ -96,7 +95,7 @@ nav a:hover {
 .btn {
   border: 2px solid var(--accent);
   padding: 0.75rem 1.5rem;
-  font-family: var(--pixel);
+  font-family: var(--pixel-font);
   color: var(--ink);
   background: transparent;
   text-decoration: none;
@@ -107,7 +106,7 @@ nav a:hover {
   color: var(--bg);
 }
 
-/* GALLERY GRID */
+/* 7. GALLERY GRID */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -126,7 +125,7 @@ nav a:hover {
   aspect-ratio: 16/9;
 }
 
-/* RÉSUMÉ SECTION */
+/* 8. RÉSUMÉ SECTION */
 .resume-section {
   max-width: 800px;
   margin: 0 auto 3rem;
@@ -139,9 +138,8 @@ nav a:hover {
   list-style: disc inside;
 }
 
-/* FOOTER */
+/* 9. FOOTER */
 footer#contact {
-  margin-top: auto;
   text-align: center;
   background: #111;
   color: #888;
