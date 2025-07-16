@@ -6,6 +6,20 @@
   --body: 'Orbitron', sans-serif;
 }
 
+/* MAKE FOOTER STICK TO BOTTOM */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('./assets/port_bg.png') center/cover no-repeat fixed;
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.4;
+}
+main, section {
+  flex: 1;
+}
+
 /* RESET */
 *,
 *::before,
@@ -17,15 +31,20 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-  background: url('./assets/port_bg.png') center/cover no-repeat fixed;
-  color: var(--ink);
-  font-family: var(--body);
-  line-height: 1.4;
-  padding-top: 4rem; /* leave space for the sticky nav */
-}
 
 /* FONTS & HEADINGS */
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./assets/fonts/Orbitron-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'VT323';
+  src: url('./assets/fonts/VT323-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
 h1, h2, h3 {
   font-family: var(--pixel);
   color: var(--accent);
@@ -34,7 +53,7 @@ h1, h2, h3 {
 }
 h1 {
   font-size: 3rem;
-  margin: 1rem 0 1.5rem;
+  margin: 1rem 0;
 }
 h2 {
   font-size: 2rem;
@@ -72,7 +91,6 @@ nav a:hover {
   margin-top: 1.5rem;
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
   justify-content: center;
 }
 .btn {
@@ -99,9 +117,10 @@ nav a:hover {
 .gallery img,
 .gallery video {
   width: 100%;
+  height: auto;
   display: block;
   border: 2px solid var(--accent);
-  object-fit: cover;
+  object-fit: contain;
 }
 .gallery video {
   aspect-ratio: 16/9;
@@ -122,6 +141,7 @@ nav a:hover {
 
 /* FOOTER */
 footer#contact {
+  margin-top: auto;
   text-align: center;
   background: #111;
   color: #888;
