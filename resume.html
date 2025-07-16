@@ -3,202 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>dolma | résumé</title>
+  <title>Dolma Rajkhowa — Résumé</title>
 
-  <style>
-    /* custom fonts */
-    @font-face {
-      font-family: 'Orbit';
-      src: url('font_orbit.ttf') format('truetype');
-    }
-    @font-face {
-      font-family: 'Pixlefy';
-      src: url('font_pixlefy.ttf') format('truetype');
-    }
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 
-    :root {
-      --bg: #050505;
-      --ink: #f7f7f7;
-      --accent: #ff2e2e;
-      --body: 'Orbit', sans-serif;
-      --pixel: 'Pixlefy', monospace;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      min-height:100vh;
-      background: var(--bg) url('assets/port_bg.png') repeat fixed;
-      cursor: url('assets/port_cursor.png') 4 4, auto;
-      color: var(--ink);
-      font-family: var(--body);
-      font-size:20px; line-height:1.5; letter-spacing:.6px;
-      padding:2rem 1rem;
-      text-transform:lowercase;
-    }
-    h1 {
-      font-family: var(--pixel);
-      font-size:2.5rem;
-      color: var(--accent);
-      text-align:center;
-      margin-bottom:1rem;
-    }
-    .contact {
-      text-align:center;
-      margin-bottom:2rem;
-      font-size:1rem;
-    }
-    .contact a { color:var(--ink); text-decoration:none; }
-
-    details {
-      border:1px solid var(--ink);
-      margin:1.25rem 0;
-      overflow:hidden;
-    }
-    summary {
-      font-family: var(--pixel);
-      font-size:1rem;
-      letter-spacing:1px;
-      list-style:none;
-      cursor:pointer;
-      padding:0.75rem 1rem;
-      background: var(--bg);
-      position:relative;
-    }
-    summary::-webkit-details-marker { display:none }
-    summary::after {
-      content:'+';
-      position:absolute; right:1rem; top:0.75rem;
-      font-family: var(--pixel);
-    }
-    details[open] summary::after { content:'–'; }
-
-    .section {
-      padding:0.75rem 1rem 1.5rem;
-      font-size:1rem;
-    }
-    .section p { margin-bottom:1rem; }
-    .section ul { margin:0.75rem 0 1rem 1.25rem; list-style:none; }
-    .section ul li {
-      margin-bottom:0.5rem;
-      position:relative;
-      padding-left:1.2rem;
-    }
-    .section ul li::before {
-      content:'•';
-      position:absolute;
-      left:0;
-      color:var(--accent);
-    }
-  </style>
+  <!-- SHARED STYLESHEET -->
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
-  <h1>résumé</h1>
-  <p class="contact">
-    dolma rajkhowa · mumbai<br>
-    <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a> · ig- dolma._r
-  </p>
+  <nav>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="resume.html">Résumé</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <details open>
-    <summary>profile</summary>
-    <div class="section">
-      <p>former economics undergrad. pretty chill about graphs, less chill about layouts.</p>
-      <p>i started out designing posters for a college fest and fell harder than expected; dropped out to focus on design. since then i’ve worked across social media, short-form edits, event visuals, and lately motion design & creative coding to expand what i can build.</p>
-      <p>during that process, i realised i can spot what good looks like; the hard part is building it myself. that’s the gap i’m closing through tools, decisions, and doing the work.</p>
-      <p>the goal is to build a creative system i can grow inside—where design, motion & code work together, not in silos.</p>
-    </div>
-  </details>
+  <section id="resume">
+    <h2>Résumé</h2>
 
-  <details>
-    <summary>work experience</summary>
-    <div class="section">
-      <p><strong>grump · social media intern</strong> <em>(mumbai · mar–apr 2025)</em></p>
+    <div class="resume-section">
+      <h3>About Me</h3>
+      <p>
+        I’m a second-year design student at Sophia College, Mumbai, deeply passionate
+        about crafting interactive visuals and micro-motion. My journey blends
+        social-media strategy, graphic design, and creative coding.
+      </p>
+
+      <h3>Work Experience</h3>
       <ul>
-        <li>created visual reference decks & moodboards for client reels</li>
-        <li>wrote short-form scripts & captions for instagram</li>
-        <li>assisted shoots with props, styling, continuity & bts stills</li>
-        <li>edited rough cuts in davinci resolve; scheduled posts & tracked metrics</li>
-        <li>handled manual prop sourcing & basic set builds</li>
+        <li>Club Secretary, SCEDA (Sophia College)—led theatre PR & design (2024–25)</li>
+        <li>Social Media Lead, Kaleidoscope Fest 2025—grew new account from 500→10K followers</li>
+        <li>Creative Agency Intern, Grump—produced client-testimony vlogs & reels</li>
       </ul>
 
-      <p><strong>saras.care · comms intern</strong> <em>(melbourne · oct 2024–jan 2025)</em></p>
+      <h3>Skills</h3>
       <ul>
-        <li>built & maintained artist roster for diwali programming</li>
-        <li>conducted sponsor research & pricing analysis</li>
-        <li>contributed to deck-making, one-pagers & visual formatting</li>
-        <li>managed internal communication with volunteer team</li>
+        <li>Adobe Suite (After Effects, Premiere, Photoshop)</li>
+        <li>TouchDesigner & generative visuals</li>
+        <li>HTML/CSS & basic JS</li>
+        <li>Graphic & motion design</li>
       </ul>
 
-      <p><strong>connectfor / rosy blue foundation · digital marketing intern</strong> <em>(mumbai · apr–jul 2023)</em></p>
+      <h3>Education</h3>
       <ul>
-        <li>wrote captions, emailers & newsletters</li>
-        <li>shot reels & event content; edited for instagram & youtube</li>
-        <li>designed graphics in canva; prepped carousels & ig posts</li>
-        <li>supported volunteer coordination & logistics</li>
-        <li>managed ngo outreach & lead generation</li>
-      </ul>
-
-      <p><strong>masters buddy · market research intern</strong> <em>(remote · apr–may 2023)</em></p>
-      <ul>
-        <li>analysed competitor content & pricing strategies</li>
-        <li>identified gaps in ad messaging & delivery</li>
-      </ul>
-
-      <p><strong>hamari pehchaan ngo & milaap · campaign volunteer</strong> <em>(remote · apr–may 2023)</em></p>
-      <ul>
-        <li>created copy, posters & visual assets for fundraiser pages</li>
-      </ul>
-
-      <p><strong>legal-lore · legal research intern</strong> <em>(remote · may–aug 2023)</em></p>
-      <ul>
-        <li>summarised high court & supreme court rulings</li>
-        <li>wrote 300-word newsletter briefs</li>
-        <li>formatted content for legal blog distribution</li>
+        <li>B.A. in Economics & Political Science (NEP)—Sophia College, Mumbai (2022– )</li>
+        <li>Creative Coding—The Node Institute</li>
       </ul>
     </div>
-  </details>
 
-  <details>
-    <summary>leadership & projects</summary>
-    <div class="section">
-      <p><strong>head, team pr · annual college fest</strong> <em>(jul 2023–present)</em></p>
-      <ul>
-        <li>led pr & rebranding strategy; rebuilt instagram & identity</li>
-        <li>created design kits & content templates; managed 15-person crew</li>
-        <li>co-curated after8 lineup & day panel; live-covered fest week</li>
-      </ul>
+  </section>
 
-      <p><strong>sceda drama club · club secretary</strong> <em>(2022–2025)</em></p>
-      <ul>
-        <li>wrote & directed original play at bhabha auditorium (800-seater)</li>
-        <li>ran production with &lt;10 people & ₹0 budget</li>
-        <li>handled sound, lighting, budgeting & improv training</li>
-      </ul>
-    </div>
-  </details>
-
-  <details>
-    <summary>skills</summary>
-    <div class="section">
-      <ul>
-        <li><strong>visuals & design</strong>: canva · illustrator (basic) · layout systems · moodboarding</li>
-        <li><strong>video & motion</strong>: davinci resolve · premiere/after effects · touchdesigner basics</li>
-        <li><strong>communication</strong>: caption writing · scripting · event coordination</li>
-        <li><strong>research & strategy</strong>: social analytics · deck writing · outreach docs</li>
-      </ul>
-    </div>
-  </details>
-
-  <details>
-    <summary>education & training</summary>
-    <div class="section">
-      <ul>
-        <li>creative coding – the node institute (remote), 2025 cohort</li>
-        <li>ba economics, minor political science (dropped out) — sophia college, mumbai</li>
-        <li>12th (commerce) — amity international school, 96 %</li>
-      </ul>
-    </div>
-  </details>
+  <!-- CONTACT FOOTER -->
+  <footer id="contact">
+    <p>Reach out at:</p>
+    <p><a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a> · 8368118218</p>
+  </footer>
 
 </body>
 </html>
