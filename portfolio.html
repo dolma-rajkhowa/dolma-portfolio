@@ -3,266 +3,91 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>dolma rajkhowa – portfolio</title>
+  <title>Dolma Rajkhowa — Portfolio</title>
 
-  <style>
-    /────────────────── 1) FONTS ──────────────────/
-    @font-face {
-      font-family: 'Orbit';
-      src: url('font_orbit.ttf') format('truetype');
-    }
-    @font-face {
-      font-family: 'Pixelfy';
-      src: url('font_pixlefy.ttf') format('truetype');
-    }
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 
-    /────────────────── 2) RESET + ROOT ──────────────────/
-    * { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --red:   #ff0000;
-      --white: #ffffff;
-      --gray:  #cccccc;
-    }
-
-    /────────────────── 3) BODY + BG + CURSOR ──────────────────/
-    body {
-      min-height:100vh;
-      background: url('assets/port_bg.png') center/cover no-repeat fixed;
-      cursor:     url('assets/port_cursor.png') 8 8, auto;
-      font-family: 'Orbit', sans-serif;
-      color: var(--white);
-      line-height:1.5;
-      padding-bottom:4rem; /* for the sticky footer */
-    }
-    a { color:inherit; text-decoration:none; }
-
-    main {
-      width: 90%;
-      max-width: 800px;
-      margin: 2rem auto;
-    }
-
-    /────────────────── 4) HEADER + NAV ──────────────────/
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    header h1 {
-      font-family: 'Pixelfy', monospace;
-      font-size: 2.8rem;
-      color: var(--red);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    nav {
-      margin-top: 0.5rem;
-    }
-    nav a {
-      display: inline-block;
-      margin: 0 .5rem;
-      padding: .4rem .8rem;
-      border: 2px solid var(--red);
-      font-family: 'Pixelfy', monospace;
-      font-size: .9rem;
-      text-transform: uppercase;
-      color: var(--red);
-    }
-
-    /────────────────── 5) COLLAPSE + EXPAND WRAPPER ──────────────────/
-    .portfolio-grid {
-      overflow: hidden;
-      max-height: calc(100vh * 3); /* ~3 scrolls tall */
-      transition: max-height .6s ease;
-    }
-
-    /────────────────── 6) SECTION HEADINGS ──────────────────/
-    section {
-      margin-bottom: 2.5rem;
-    }
-    section h2 {
-      font-family: 'Pixelfy', monospace;
-      font-size: 1.8rem;
-      color: var(--red);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-
-    /────────────────── 7) GRID LAYOUT & CELLS ──────────────────/
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
-      gap: .5rem;
-    }
-    .cell {
-      border: 2px solid var(--red);
-    }
-    .cell img,
-    .cell video {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    /* first texture is portrait → rotate it */
-    #textures .cell:first-child img {
-      transform: rotate(90deg);
-    }
-
-    /* force 4:5 ratio on all WIP items */
-    #wip .cell img,
-    #wip .cell video {
-      aspect-ratio: 4/5;
-    }
-
-    /────────────────── 8) VIEW MORE BUTTON ──────────────────/
-    #show-more {
-      display: block;
-      margin: 1rem auto;
-      padding: .6rem 1.2rem;
-      border: 2px solid var(--red);
-      background: none;
-      font-family: 'Orbit', sans-serif;
-      color: var(--red);
-      cursor: pointer;
-    }
-
-    /────────────────── 9) STICKY FOOTER ──────────────────/
-    footer {
-      position: fixed;
-      bottom: 0; left: 0; width: 100%;
-      background: rgba(0,0,0,.7);
-      color: var(--gray);
-      font-family: 'Orbit', sans-serif;
-      font-size: .85rem;
-      text-align: center;
-      padding: .5rem 0;
-    }
-    footer a {
-      color: var(--gray);
-      text-decoration: underline;
-    }
-  </style>
+  <!-- SHARED STYLESHEET -->
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <main>
-    <header>
-      <h1>portfolio</h1>
-      <nav>
-        <a href="index.html">home</a>
-        <a href="resume.html">résumé</a>
-      </nav>
-    </header>
 
-    <div class="portfolio-grid">
+  <nav>
+    <a href="#intro">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#resume">Résumé</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-      <!-- 1) PITCH DECK -->
-      <section id="pitch-deck">
-        <h2>pitch deck</h2>
-        <div class="grid">
-          <div class="cell">
-            <img src="assets/pitch_deck_1_cover.jpg" alt="Pitch Deck cover">
-          </div>
-          <div class="cell">
-            <img src="assets/pitch_deck_1_slider_b.jpg" alt="Pitch Deck slide B">
-          </div>
-          <div class="cell">
-            <img src="assets/pitch_deck_1_slider_c.jpg" alt="Pitch Deck slide C">
-          </div>
-        </div>
-      </section>
+  <!-- INTRO -->
+  <section id="intro">
+    <h1>Hello, I’m Dolma</h1>
+    <p>
+      A budding creative technologist with hands-on experience in social media strategy
+      and graphic design. I blend static layouts with micro-motion to tell visual stories.
+    </p>
+    <div class="btn-group">
+      <a class="btn" href="#portfolio">View Portfolio</a>
+      <a class="btn" href="#resume">View Résumé</a>
+    </div>
+  </section>
 
-      <!-- 2) TEXTURES -->
-      <section id="textures">
-        <h2>textures</h2>
-        <div class="grid">
-          <div class="cell">
-            <img src="assets/texture_bg_1.jpg" alt="Texture 1">
-          </div>
-          <div class="cell">
-            <img src="assets/texture_bg_2.jpg" alt="Texture 2">
-          </div>
-          <div class="cell">
-            <img src="assets/texture_bg_3.jpg" alt="Texture 3">
-          </div>
-        </div>
-      </section>
+  <!-- PORTFOLIO SECTIONS -->
+  <section id="portfolio">
+    <h2>Pitch Decks</h2>
+    <div class="gallery">
+      <a href="assets/pitch_deck_1_cover.jpg"><img src="assets/pitch_deck_1_cover.jpg" alt="Pitch Cover"></a>
+      <a href="assets/pitch_deck_1_slider_b.jpg"><img src="assets/pitch_deck_1_slider_b.jpg" alt="Pitch Slide B"></a>
+      <a href="assets/pitch_deck_1_slider_c.jpg"><img src="assets/pitch_deck_1_slider_c.jpg" alt="Pitch Slide C"></a>
+    </div>
 
-      <!-- 3) BRANDING -->
-      <section id="branding">
-        <h2>branding</h2>
-        <div class="grid">
-          <div class="cell"><img src="assets/br_banner_1.png"          alt="Banner"></div>
-          <div class="cell"><img src="assets/br_deck_1_cover.jpg"      alt="Deck cover"></div>
-          <div class="cell"><img src="assets/br_deck_1_slider_b.jpg"   alt="Deck slide B"></div>
-          <div class="cell"><img src="assets/br_deck_1_slider_c.jpg"   alt="Deck slide C"></div>
-          <div class="cell"><img src="assets/br_deck_2_cover.jpg"      alt="Deck 2 cover"></div>
-          <div class="cell"><img src="assets/br_deck_2_slider_b.png"   alt="Deck 2 slide B"></div>
-          <div class="cell"><img src="assets/br_deck_2_slider_c.png"   alt="Deck 2 slide C"></div>
-          <div class="cell"><img src="assets/br_logo_1_a.png"          alt="Logo A"></div>
-          <div class="cell"><img src="assets/br_logo_1_b.png"          alt="Logo B"></div>
-          <div class="cell">
-            <video src="assets/br_reel_1.mp4" controls></video>
-          </div>
-          <div class="cell">
-            <video src="assets/br_reel_2.mp4" controls></video>
-          </div>
-        </div>
-      </section>
+    <h2>Branding</h2>
+    <div class="gallery">
+      <a href="assets/br_banner_1.png"><img src="assets/br_banner_1.png" alt="Brand Banner"></a>
+      <a href="assets/br_deck_1_cover.jpg"><img src="assets/br_deck_1_cover.jpg" alt="Deck 1 Cover"></a>
+      <a href="assets/br_deck_1_slider_b.jpg"><img src="assets/br_deck_1_slider_b.jpg" alt="Deck 1 B"></a>
+      <a href="assets/br_deck_1_slider_c.jpg"><img src="assets/br_deck_1_slider_c.jpg" alt="Deck 1 C"></a>
+      <a href="assets/br_logo_1_a.png"><img src="assets/br_logo_1_a.png" alt="Logo 1A"></a>
+      <a href="assets/br_logo_1_b.png"><img src="assets/br_logo_1_b.png" alt="Logo 1B"></a>
+      <video src="assets/br_reel_1.mp4" controls playsinline></video>
+      <video src="assets/br_reel_2.mp4" controls playsinline></video>
+    </div>
 
-      <!-- 4) SOCIAL MEDIA -->
-      <section id="social-media">
-        <h2>social media</h2>
-        <div class="grid">
-          <div class="cell"><img src="assets/sm_static_1.jpg"           alt="SM static 1"></div>
-          <div class="cell"><img src="assets/sm_static_2.jpg"           alt="SM static 2"></div>
-          <div class="cell"><img src="assets/sm_static_3.jpg"           alt="SM static 3"></div>
-          <div class="cell"><img src="assets/sm_static_4_poster.png"    alt="SM poster 4"></div>
-          <div class="cell"><img src="assets/sm_static_5_poster.jpg"    alt="SM poster 5"></div>
-          <div class="cell"><img src="assets/sm_carousel_1_cover.jpg"   alt="Carousel 1 cover"></div>
-          <div class="cell"><img src="assets/sm_carousel_1_slider_b.jpg" alt="Carousel 1 slide B"></div>
-          <div class="cell"><img src="assets/sm_carousel_2_cover.jpg"   alt="Carousel 2 cover"></div>
-          <div class="cell"><img src="assets/sm_carousel_2_slider_b.png" alt="Carousel 2 slide B"></div>
-          <div class="cell"><img src="assets/sm_carousel_2_slider_c.png" alt="Carousel 2 slide C"></div>
-        </div>
-      </section>
+    <h2>Social Media</h2>
+    <div class="gallery">
+      <a href="assets/sm_carousel_1_cover.jpg"><img src="assets/sm_carousel_1_cover.jpg" alt="Carousel 1 Cover"></a>
+      <a href="assets/sm_carousel_1_slider_b.jpg"><img src="assets/sm_carousel_1_slider_b.jpg" alt="Carousel 1 B"></a>
+      <a href="assets/sm_carousel_2_cover.jpg"><img src="assets/sm_carousel_2_cover.jpg" alt="Carousel 2 Cover"></a>
+      <a href="assets/sm_static_1.jpg"><img src="assets/sm_static_1.jpg" alt="Static 1"></a>
+      <a href="assets/sm_static_2.jpg"><img src="assets/sm_static_2.jpg" alt="Static 2"></a>
+      <a href="assets/sm_static_3.jpg"><img src="assets/sm_static_3.jpg" alt="Static 3"></a>
+    </div>
 
-      <!-- 5) WIP -->
-      <section id="wip">
-        <h2>wip</h2>
-        <div class="grid">
-          <div class="cell"><img   src="assets/wip_mascots.png"   alt="Mascots"></div>
-          <div class="cell"><img   src="assets/wip_songcover.png" alt="Song Cover"></div>
-          <div class="cell"><img   src="assets/wip_static_1.jpg"  alt="WIP Static"></div>
-          <div class="cell"><video src="assets/wip_1.mp4" controls></video></div>
-          <div class="cell"><video src="assets/wip_2.mp4" controls></video></div>
-          <div class="cell"><video src="assets/wip_3.mp4" controls></video></div>
-        </div>
-      </section>
+    <h2>Textures</h2>
+    <div class="gallery">
+      <a href="assets/texture_bg_1.jpg"><img src="assets/texture_bg_1.jpg" alt="Texture 1"></a>
+      <a href="assets/texture_bg_2.jpg"><img src="assets/texture_bg_2.jpg" alt="Texture 2"></a>
+      <a href="assets/texture_bg_3.jpg"><img src="assets/texture_bg_3.jpg" alt="Texture 3"></a>
+    </div>
 
-    </div><!-- /.portfolio-grid -->
+    <h2>Work In Progress</h2>
+    <div class="gallery">
+      <a href="assets/wip_mascots.png"><img src="assets/wip_mascots.png" alt="Mascots"></a>
+      <a href="assets/wip_songcover.png"><img src="assets/wip_songcover.png" alt="Songcover"></a>
+      <video src="assets/wip_1.mp4" controls playsinline></video>
+      <video src="assets/wip_2.mp4" controls playsinline></video>
+    </div>
+  </section>
 
-    <button id="show-more">view more ↓</button>
-
-  </main>
-
-  <footer>
-    contact: <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a>
+  <!-- CONTACT FOOTER -->
+  <footer id="contact">
+    <p>Reach out at:</p>
+    <p><a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a> · 8368118218</p>
   </footer>
 
-  <script>
-    const wrap = document.querySelector('.portfolio-grid');
-    const btn  = document.getElementById('show-more');
-    btn.addEventListener('click', () => {
-      if (wrap.style.maxHeight === 'none') {
-        wrap.style.maxHeight = 'calc(100vh * 3)';
-        btn.textContent = 'view more ↓';
-      } else {
-        wrap.style.maxHeight = 'none';
-        btn.textContent = 'show less ↑';
-      }
-    });
-  </script>
 </body>
 </html>
