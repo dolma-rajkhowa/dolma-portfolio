@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>dolma rajkhowa – portfolio</title>
   <style>
-    /────────── 1) FONTS ──────────/
+    /*────────── 1) FONTS ──────────*/
     @font-face {
       font-family: 'Orbit';
       src: url('assets/font_orbit.ttf') format('truetype');
@@ -15,7 +15,7 @@
       src: url('assets/font_pixlefy.ttf') format('truetype');
     }
 
-    /────────── 2) RESET & ROOT ──────────/
+    /*────────── 2) RESET & ROOT ──────────*/
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
       --red:   #ff0000;
@@ -23,7 +23,7 @@
       --gray:  #cccccc;
     }
 
-    /────────── 3) BODY & BG ──────────/
+    /*────────── 3) BODY & BG ──────────*/
     body {
       min-height:100vh;
       background: url('assets/port_bg.png') center/cover no-repeat fixed;
@@ -41,7 +41,7 @@
       margin:2rem auto;
     }
 
-    /────────── 4) HEADER & NAV ──────────/
+    /*────────── 4) HEADER & NAV ──────────*/
     header { text-align:center; margin-bottom:2rem; }
     header h1 {
       font-family:'Pixelfy', monospace;
@@ -61,14 +61,14 @@
       color: var(--red);
     }
 
-    /────────── 5) VIEW-MORE WRAPPER ──────────/
+    /*────────── 5) VIEW-MORE WRAPPER ──────────*/
     .portfolio-grid {
       overflow:hidden;
       max-height: calc(100vh * 4);
       transition: max-height .5s ease;
     }
 
-    /────────── 6) SECTION TITLES ──────────/
+    /*────────── 6) SECTION TITLES ──────────*/
     section { margin-bottom:3rem; }
     section h2 {
       font-family:'Pixelfy', monospace;
@@ -78,7 +78,7 @@
       text-transform:uppercase;
     }
 
-    /────────── 7) GRID LAYOUT ──────────/
+    /*────────── 7) GRID LAYOUT ──────────*/
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(45%,1fr));
@@ -100,13 +100,13 @@
       transform: rotate(90deg);
     }
 
-    /────────── 8) FORCE 4:5 FOR WIP ──────────/
+    /*────────── 8) FORCE 4:5 FOR WIP ──────────*/
     #wip .cell img,
     #wip .cell video {
       aspect-ratio: 4/5;
     }
 
-    /────────── 9) VIEW MORE BUTTON ──────────/
+    /*────────── 9) VIEW MORE BUTTON ──────────*/
     #show-more {
       display:block;
       margin:1rem auto 3rem;
@@ -118,7 +118,7 @@
       cursor:pointer;
     }
 
-    /────────── 10) FOOTER ──────────/
+    /*────────── 10) FOOTER ──────────*/
     footer {
       position: fixed;
       bottom:0; left:0; width:100%;
