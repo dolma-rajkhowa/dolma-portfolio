@@ -18,24 +18,26 @@
     nav a:hover { color: var(--accent); }
     
     /* Section Formatting */
-    section { max-width: 1200px; margin: 0 auto 5rem; padding: 0 1rem; }
+    section { max-width: 1000px; margin: 0 auto 5rem; padding: 0 1rem; }
     h2 { font-family: var(--pixel); color: var(--accent); text-transform: uppercase; text-align: left; font-size: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
     
     /* Text Description Blocks */
     .description-scroll { max-height: 180px; overflow-y: auto; background: #111; padding: 15px; margin-bottom: 20px; border-left: 4px solid var(--accent); font-size: 0.95rem; line-height: 1.6; }
     
     /* Strict Mathematical Aspect Ratios for Instant Load */
-    .ratio-16-9 { aspect-ratio: 16 / 9; width: 100%; background: #111; object-fit: cover; display: block; }
-    .ratio-9-16 { aspect-ratio: 9 / 16; width: 100%; background: #111; object-fit: cover; display: block; }
+    .ratio-16-9 { aspect-ratio: 16 / 9; width: 100%; background: #050505; object-fit: cover; display: block; }
+    .ratio-9-16 { aspect-ratio: 9 / 16; width: 100%; background: #050505; object-fit: cover; display: block; }
     
     /* Masonry & Grids */
     .masonry { column-count: 2; column-gap: 15px; }
     .masonry-item { break-inside: avoid; margin-bottom: 15px; position: relative; }
     .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
     
+    /* Single Full-Width Assets (Alienkind & Horizontals) */
+    .hero-asset { width: 100%; margin-bottom: 15px; position: relative; }
+    
     /* Uncropped Dimensional Scaling for Images */
     .masonry-item img, .grid-2col img { width: 100%; height: auto; display: block; }
-    .hero-horizontal-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
 
     /* Hover Labels */
     .item-label { 
@@ -46,10 +48,10 @@
       opacity: 0; transition: opacity 0.3s ease; 
       border-top: 1px solid var(--accent); pointer-events: none; 
     }
-    .masonry-item:hover .item-label { opacity: 1; }
+    .masonry-item:hover .item-label, .hero-asset:hover .item-label { opacity: 1; }
 
     /* Mobile Overrides */
-    @media (max-width: 768px) { .masonry { column-count: 1; } .grid-2col, .hero-horizontal-container { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .masonry { column-count: 1; } .grid-2col { grid-template-columns: 1fr; } }
     
     footer { text-align: center; padding: 3rem 1rem; font-family: var(--pixel); opacity: 0.5; font-size: 0.8rem; }
   </style>
@@ -68,9 +70,11 @@
       <p><strong>Concept Definition:</strong> Continuing the established alien invasion lore, this project reframes the brand through a biological lens. It utilizes TouchDesigner generative feedback loops to simulate organic, bio-scopic textures. These visual assets act as leaked clinical research files, systematically positioning the product as a biological upgrade rather than a standard consumer commodity. The integration of glitch aesthetics and fluid simulations creates a symbiotic texture representing living data.</p>
     </div>
     
-    <div class="grid-2col">
-      <video class="ratio-16-9" src="assets/alk_logo.mp4" preload="none" controls playsinline></video>
-      <video class="ratio-16-9" src="assets/alk_ascii.mp4" preload="none" controls playsinline></video>
+    <div class="hero-asset">
+      <video class="ratio-16-9" src="assets/alk_logo.mp4" preload="metadata" muted playsinline loop></video>
+    </div>
+    <div class="hero-asset">
+      <video class="ratio-16-9" src="assets/alk_ascii.mp4" preload="metadata" muted playsinline loop></video>
     </div>
     
     <div class="masonry">
@@ -88,10 +92,10 @@
       <p><strong>Technical Logic:</strong> A functional, real-time environmental data visualizer engineered in TouchDesigner. This system fetches live parameters from a free AQI API to mathematically control generative feedback switches. It dynamically shifts visual states across safe (green), moderate (blue), and hazardous (red) thresholds based on localized data inputs. The underlying node architecture is highly modular, with the statistical potential to be adapted for localized weather mapping, humidity sensors, or time-of-day parameter shifting.</p>
     </div>
     <div class="grid-2col">
-      <video class="ratio-16-9" src="assets/aqi_base_mosh.mp4" preload="none" controls playsinline></video>
-      <video class="ratio-16-9" src="assets/aqi_green.mp4" preload="none" controls playsinline></video>
-      <video class="ratio-16-9" src="assets/aqi_blue.mp4" preload="none" controls playsinline></video>
-      <video class="ratio-16-9" src="assets/aqi_red.mp4" preload="none" controls playsinline></video>
+      <video class="ratio-16-9" src="assets/aqi_base_mosh.mp4" preload="metadata" muted playsinline loop></video>
+      <video class="ratio-16-9" src="assets/aqi_green.mp4" preload="metadata" muted playsinline loop></video>
+      <video class="ratio-16-9" src="assets/aqi_blue.mp4" preload="metadata" muted playsinline loop></video>
+      <video class="ratio-16-9" src="assets/aqi_red.mp4" preload="metadata" muted playsinline loop></video>
     </div>
   </section>
 
@@ -99,26 +103,35 @@
     <h2>TouchDesigner Visuals</h2>
     
     <div class="masonry">
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/lobby_pixelsorting.mp4" preload="none" controls playsinline></video><div class="item-label">Lobby Sort 1</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/man_pixelsorting.mp4" preload="none" controls playsinline></video><div class="item-label">Man Sort</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/pixel_mash_ugc.mp4" preload="none" controls playsinline></video><div class="item-label">Lobby Sort 2</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/colourberry_pixelsorting.mp4" preload="none" controls playsinline></video><div class="item-label">Colourberry Sort</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/lobby_pixelsorting.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Lobby Sort 1</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/man_pixelsorting.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Man Sort</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/pixel_mash_ugc.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Lobby Sort 2</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/colourberry_pixelsorting.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Colourberry Sort</div></div>
       
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/fry.mp4" preload="none" controls playsinline></video><div class="item-label">Fry</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/green_blobs.mp4" preload="none" controls playsinline></video><div class="item-label">Green Blobs</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/hand_tracking.mp4.mp4" preload="none" controls playsinline></video><div class="item-label">Hand Tracking</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/hazel_eyes.mp4" preload="none" controls playsinline></video><div class="item-label">Hazel Eyes</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/fry.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Fry</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/green_blobs.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Green Blobs</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/hand_tracking.mp4.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Hand Tracking</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/hazel_eyes.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Hazel Eyes</div></div>
       <div class="masonry-item"><img src="assets/image_pixel_melt.jpg" alt="Pixel Melt"><div class="item-label">Pixel Melt</div></div>
       <div class="masonry-item"><img src="assets/pixel resort ss.jpg" alt="Pixel Resort"><div class="item-label">Pixel Resort</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/stair_ex.mp4" preload="none" controls playsinline></video><div class="item-label">Stair EX</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/starwberry.mp4" preload="none" controls playsinline></video><div class="item-label">Strawberry</div></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/whirlpool.mp4" preload="none" controls playsinline></video><div class="item-label">Whirlpool</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/stair_ex.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Stair EX</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/starwberry.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Strawberry</div></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/whirlpool.mp4" preload="metadata" muted playsinline loop></video><div class="item-label">Whirlpool</div></div>
     </div>
 
-    <div class="hero-horizontal-container">
-      <video class="ratio-16-9" src="assets/god_particle_linetracking.mp4" preload="none" controls playsinline></video>
-      <video class="ratio-16-9" src="assets/line_build.mp4" preload="none" controls playsinline></video>
-      <video class="ratio-16-9" src="assets/turtle_chrome.mp4" preload="none" controls playsinline></video>
+    <div style="margin-top: 30px;">
+      <div class="hero-asset">
+        <video class="ratio-16-9" src="assets/god_particle_linetracking.mp4" preload="metadata" muted playsinline loop></video>
+        <div class="item-label">God Particle Linetracking</div>
+      </div>
+      <div class="hero-asset">
+        <video class="ratio-16-9" src="assets/line_build.mp4" preload="metadata" muted playsinline loop></video>
+        <div class="item-label">Line Build</div>
+      </div>
+      <div class="hero-asset">
+        <video class="ratio-16-9" src="assets/turtle_chrome.mp4" preload="metadata" muted playsinline loop></video>
+        <div class="item-label">Turtle Chrome</div>
+      </div>
     </div>
   </section>
 
@@ -165,16 +178,16 @@
   <section id="misc">
     <h2>Explorations & Misc</h2>
     <div class="masonry">
-      <div class="masonry-item"><video class="ratio-16-9" src="assets/wip_1.mp4" preload="none" controls playsinline></video></div>
-      <div class="masonry-item"><video class="ratio-16-9" src="assets/wip_2.mp4" preload="none" controls playsinline></video></div>
-      <div class="masonry-item"><video class="ratio-16-9" src="assets/wip_3.mp4" preload="none" controls playsinline></video></div>
+      <div class="masonry-item"><video class="ratio-16-9" src="assets/wip_1.mp4" preload="metadata" muted playsinline loop></video></div>
+      <div class="masonry-item"><video class="ratio-16-9" src="assets/wip_2.mp4" preload="metadata" muted playsinline loop></video></div>
+      <div class="masonry-item"><video class="ratio-16-9" src="assets/wip_3.mp4" preload="metadata" muted playsinline loop></video></div>
       <div class="masonry-item"><img src="assets/wip_mascots.png"></div>
       <div class="masonry-item"><img src="assets/wip_songcover.png"></div>
       <div class="masonry-item"><img src="assets/wip_static_1.jpg"></div>
       <div class="masonry-item"><img src="assets/br_logo_1_a.png"></div>
       <div class="masonry-item"><img src="assets/br_logo_1_b.png"></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/br_reel_1.mp4" preload="none" controls playsinline></video></div>
-      <div class="masonry-item"><video class="ratio-9-16" src="assets/br_reel_2.mp4" preload="none" controls playsinline></video></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/br_reel_1.mp4" preload="metadata" muted playsinline loop></video></div>
+      <div class="masonry-item"><video class="ratio-9-16" src="assets/br_reel_2.mp4" preload="metadata" muted playsinline loop></video></div>
       <div class="masonry-item"><img src="assets/visualinspo_1.png"></div>
       <div class="masonry-item"><img src="assets/visualinspo_2.png"></div>
     </div>
@@ -183,6 +196,25 @@
   <footer>
     dolma rajkhowa
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videos = document.querySelectorAll('video');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.play().catch(e => {}); // Silently catch browser autoplay blocks
+          } else {
+            entry.target.pause();
+          }
+        });
+      }, { threshold: 0.1 }); // Triggers when 10% of the video is visible
+
+      videos.forEach(video => {
+        observer.observe(video);
+      });
+    });
+  </script>
 
 </body>
 </html>
