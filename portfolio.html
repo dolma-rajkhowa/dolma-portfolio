@@ -22,7 +22,7 @@
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .gallery-item { border: 1px solid #333; padding: 10px; background: rgba(255,255,255,0.03); }
     .gallery img, .gallery video { width: 100%; height: auto; border: 1px solid var(--accent); }
-    .item-label { font-family: var(--pixel); font-size: 0.8rem; margin-top: 8px; color: #888; text-align: center; }
+    .item-label { font-family: var(--pixel); font-size: 0.8rem; margin-top: 8px; color: #888; text-align: center; word-wrap: break-word; }
     footer { text-align: center; padding: 3rem 1rem; font-family: var(--pixel); opacity: 0.7; }
   </style>
 </head>
@@ -35,10 +35,9 @@
   </nav>
 
   <section id="alienkind">
-    <h2>Alienkind: Creative Direction & Lore</h2>
+    <h2>Alienkind Concept Deck</h2>
     <div class="description-scroll">
-      <p><strong>Creative Direction:</strong> Extending the "alien invasion" lore by reframing the brand as a clinical bio-study. 
-      This deck utilizes TouchDesigner generative feedback loops to simulate organic textures, positioning the brand as a biological upgrade rather than a standard commodity.</p>
+      <p><strong>Creative Direction:</strong> Continuing the established alien invasion lore, this project reframes the brand through a biological lens. It utilizes generative visuals to simulate organic, bio-scopic textures, acting as leaked research files that position the product as a biological upgrade rather than a standard consumer good.</p>
     </div>
     <div class="asset-stack">
       <img src="assets/alk_d1.jpg" alt="Alienkind Title">
@@ -52,42 +51,107 @@
   </section>
 
   <section id="aqi-visualizer">
-    <h2>Environmental Data Visualizer</h2>
+    <h2>AQI Visualiser</h2>
     <div class="description-scroll">
-      <p><strong>Technical Logic:</strong> A functional reality check for urban air quality. This system maps real-time AQI API 
-      data to generative textures, shifting from clean nocturnal blues to high-pollution warning reds based on city-specific data inputs.</p>
+      <p><strong>Technical Logic:</strong> A real-time environmental visualizer engineered in TouchDesigner. It connects to a free AQI API to control generative feedback switches, dynamically shifting visual states across green, yellow, blue, and red thresholds. The underlying logic is highly customizable, with the potential to be adapted for localized weather mapping or time-of-day parameters.</p>
     </div>
     <div class="gallery">
       <div class="gallery-item">
+        <video src="assets/aqi_base_mesh.mp4" autoplay loop muted playsinline></video>
+        <div class="item-label">Base Mesh</div>
+      </div>
+      <div class="gallery-item">
         <video src="assets/aqi_green.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Safe AQI (Green)</div>
+        <div class="item-label">Safe Threshold (Green)</div>
       </div>
       <div class="gallery-item">
         <video src="assets/aqi_blue.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Moderate / Night (Blue)</div>
+        <div class="item-label">Moderate Threshold (Blue)</div>
       </div>
       <div class="gallery-item">
         <video src="assets/aqi_red.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Hazardous AQI (Red)</div>
+        <div class="item-label">Hazardous Threshold (Red)</div>
       </div>
     </div>
   </section>
 
   <section id="td-sketches">
-    <h2>TouchDesigner Studies</h2>
+    <h2>TouchDesigner Visuals</h2>
     <div class="gallery">
-      <div class="gallery-item">
-        <video src="assets/hand_tracking.mp4.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Hand Tracking & Blur</div>
-      </div>
-      <div class="gallery-item">
-        <video src="assets/god_particle_linetracking.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">God Particle Linetracking</div>
-      </div>
-      <div class="gallery-item">
-        <video src="assets/lakozy_snippets_lobby_pixel_sort.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Pixel Sorting Algorithms</div>
-      </div>
+      <div class="gallery-item"><video src="assets/colourberry_pixelsorting.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/fry.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/god_particle_linetracking.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/green_blobs.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/hand_tracking.mp4.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/hazel_eyes.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><img src="assets/image_pixel_melt.jpg" alt="Pixel Melt"></div>
+      <div class="gallery-item"><video src="assets/line_build.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/lobby_pixelsorting.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/man_pixelsorting.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><img src="assets/pixel resort ss.jpg" alt="Pixel Resort"></div>
+      <div class="gallery-item"><video src="assets/pixel_mash_ugc.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/stair_ex.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/starwberry.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/turtle_chrome.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/whirlpool.mp4" autoplay loop muted playsinline></video></div>
+    </div>
+  </section>
+
+  <section id="decks">
+    <h2>Branding Decks</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="assets/pitch_deck_1_cover.jpg"></div>
+      <div class="gallery-item"><img src="assets/pitch_deck_1_slider_b.jpg"></div>
+      <div class="gallery-item"><img src="assets/pitch_deck_1_slider_c.jpg"></div>
+      <div class="gallery-item"><img src="assets/br_deck_1_cover.jpg"></div>
+      <div class="gallery-item"><img src="assets/br_deck_1_slider_b.jpg"></div>
+      <div class="gallery-item"><img src="assets/br_deck_1_slider_c.jpg"></div>
+      <div class="gallery-item"><img src="assets/br_deck_2_cover.jpg"></div>
+      <div class="gallery-item"><img src="assets/br_deck_2_slider_b.png"></div>
+      <div class="gallery-item"><img src="assets/br_deck_2_slider_c.png"></div>
+    </div>
+  </section>
+
+  <section id="socials">
+    <h2>Social Media Assets</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="assets/sm_carousel_1_cover.jpg"></div>
+      <div class="gallery-item"><img src="assets/sm_carousel_1_slider_b.jpg"></div>
+      <div class="gallery-item"><img src="assets/sm_carousel_2_cover.jpg"></div>
+      <div class="gallery-item"><img src="assets/sm_carousel_2_slider_b.png"></div>
+      <div class="gallery-item"><img src="assets/sm_carousel_2_slider_c.png"></div>
+      <div class="gallery-item"><img src="assets/sm_static_1.jpg"></div>
+      <div class="gallery-item"><img src="assets/sm_static_2.jpg"></div>
+      <div class="gallery-item"><img src="assets/sm_static_3.jpg"></div>
+      <div class="gallery-item"><img src="assets/sm_static_4_poster.png"></div>
+      <div class="gallery-item"><img src="assets/sm_static_5_poster.jpg"></div>
+    </div>
+  </section>
+
+  <section id="textures">
+    <h2>Textures</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="assets/texture_bg_1.jpg"></div>
+      <div class="gallery-item"><img src="assets/texture_bg_2.jpg"></div>
+      <div class="gallery-item"><img src="assets/texture_bg_3.jpg"></div>
+    </div>
+  </section>
+
+  <section id="misc">
+    <h2>Explorations & Misc</h2>
+    <div class="gallery">
+      <div class="gallery-item"><video src="assets/wip_1.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/wip_2.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/wip_3.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><img src="assets/wip_mascots.png"></div>
+      <div class="gallery-item"><img src="assets/wip_songcover.png"></div>
+      <div class="gallery-item"><img src="assets/wip_static_1.jpg"></div>
+      <div class="gallery-item"><img src="assets/br_logo_1_a.png"></div>
+      <div class="gallery-item"><img src="assets/br_logo_1_b.png"></div>
+      <div class="gallery-item"><video src="assets/br_reel_1.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><video src="assets/br_reel_2.mp4" autoplay loop muted playsinline></video></div>
+      <div class="gallery-item"><img src="assets/visualinspo_1.png"></div>
+      <div class="gallery-item"><img src="assets/visualinspo_2.png"></div>
     </div>
   </section>
 
