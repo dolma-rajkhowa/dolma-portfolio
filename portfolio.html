@@ -4,185 +4,95 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>dolma | portfolio</title>
-
   <style>
-    /*──────────────────────────────────────────
-      1. Self-hosted fonts
-    ──────────────────────────────────────────*/
-    @font-face {
-      font-family: 'Orbit';
-      src: url('assets/font_orbit.ttf') format('truetype');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Pixlefy';
-      src: url('assets/font_pixlefy.ttf') format('truetype');
-      font-display: swap;
-    }
-
-    /*──────────────────────────────────────────
-      2. Variables & Reset
-    ──────────────────────────────────────────*/
-    :root {
-      --bg: #050505;
-      --ink: #f7f7f7;
-      --accent: #ff2e2e;
-      --body: 'Orbit', sans-serif;
-      --pixel: 'Pixlefy', monospace;
-    }
-    *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+    @font-face { font-family: 'Orbit'; src: url('assets/font_orbit.ttf') format('truetype'); font-display: swap; }
+    @font-face { font-family: 'Pixlefy'; src: url('assets/font_pixlefy.ttf') format('truetype'); font-display: swap; }
+    :root { --bg: #050505; --ink: #f7f7f7; --accent: #ff2e2e; --body: 'Orbit', sans-serif; --pixel: 'Pixlefy', monospace; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
-    /*──────────────────────────────────────────
-      3. Base Styles
-    ──────────────────────────────────────────*/
-    body {
-      background: var(--bg) url('assets/port_bg.png') center/cover no-repeat fixed;
-      cursor: url('assets/port_cursor.png') 4 4, auto;
-      color: var(--ink);
-      font-family: var(--body);
-      font-size: 1rem;
-      line-height: 1.5;
-      letter-spacing: 0.6px;
-      padding-top: 4rem; /* for nav */
-    }
-
-    /*──────────────────────────────────────────
-      4. Nav
-    ──────────────────────────────────────────*/
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(4px);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      font-family: var(--pixel);
-      z-index: 1000;
-    }
-    nav a {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    /*──────────────────────────────────────────
-      5. Section headings
-    ──────────────────────────────────────────*/
-    h2 {
-      font-family: var(--pixel);
-      color: var(--accent);
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 2rem;
-      margin: 2rem 0 1rem;
-    }
-
-    /*──────────────────────────────────────────
-      6. Gallery grid
-    ──────────────────────────────────────────*/
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      padding: 0 1rem 2rem;
-    }
-    .gallery img,
-    .gallery video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border: 2px solid var(--accent);
-      object-fit: contain;
-    }
-    .gallery video {
-      aspect-ratio: 16/9;
-    }
-
-    /*──────────────────────────────────────────
-      7. Footer
-    ──────────────────────────────────────────*/
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
-      font-family: var(--pixel);
-      position: relative;
-      bottom: 0;
-    }
-    footer a {
-      color: var(--ink);
-      text-decoration: underline;
-    }
+    body { background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.5; padding-top: 5rem; }
+    nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); display: flex; justify-content: center; gap: 2rem; padding: 1.2rem; font-family: var(--pixel); z-index: 1000; border-bottom: 1px solid var(--accent); }
+    nav a { color: var(--ink); text-decoration: none; font-size: 1rem; }
+    nav a:hover { color: var(--accent); }
+    section { max-width: 900px; margin: 0 auto 4rem; padding: 0 1rem; }
+    h2 { font-family: var(--pixel); color: var(--accent); text-transform: uppercase; text-align: center; font-size: 1.8rem; margin-bottom: 2rem; }
+    .description-scroll { max-height: 180px; overflow-y: auto; background: #111; padding: 15px; margin-bottom: 30px; border-left: 4px solid var(--accent); font-size: 0.95rem; }
+    .asset-stack { display: flex; flex-direction: column; gap: 2rem; }
+    .asset-stack img, .asset-stack video { width: 100%; height: auto; border: 1px solid var(--accent); }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .gallery-item { border: 1px solid #333; padding: 10px; background: rgba(255,255,255,0.03); }
+    .gallery img, .gallery video { width: 100%; height: auto; border: 1px solid var(--accent); }
+    .item-label { font-family: var(--pixel); font-size: 0.8rem; margin-top: 8px; color: #888; text-align: center; }
+    footer { text-align: center; padding: 3rem 1rem; font-family: var(--pixel); opacity: 0.7; }
   </style>
 </head>
 <body>
 
-  <!-- STICKY NAV -->
   <nav>
     <a href="index.html">home</a>
     <a href="portfolio.html">portfolio</a>
     <a href="resume.html">résumé</a>
   </nav>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <h2>Pitch Decks</h2>
-    <div class="gallery">
-      <a href="assets/pitch_deck_1_cover.jpg"><img src="assets/pitch_deck_1_cover.jpg" alt="Pitch Cover"></a>
-      <a href="assets/pitch_deck_1_slider_b.jpg"><img src="assets/pitch_deck_1_slider_b.jpg" alt="Pitch Slide B"></a>
-      <a href="assets/pitch_deck_1_slider_c.jpg"><img src="assets/pitch_deck_1_slider_c.jpg" alt="Pitch Slide C"></a>
+  <section id="alienkind">
+    <h2>Alienkind: Creative Direction & Lore</h2>
+    <div class="description-scroll">
+      <p><strong>Creative Direction:</strong> Extending the "alien invasion" lore by reframing the brand as a clinical bio-study. 
+      This deck utilizes TouchDesigner generative feedback loops to simulate organic textures, positioning the brand as a biological upgrade rather than a standard commodity.</p>
     </div>
-
-    <h2>Branding</h2>
-    <div class="gallery">
-      <a href="assets/br_banner_1.png"><img src="assets/br_banner_1.png" alt="Brand Banner"></a>
-      <a href="assets/br_deck_1_cover.jpg"><img src="assets/br_deck_1_cover.jpg" alt="Deck Cover"></a>
-      <a href="assets/br_deck_1_slider_b.jpg"><img src="assets/br_deck_1_slider_b.jpg" alt="Deck Slide B"></a>
-      <a href="assets/br_deck_1_slider_c.jpg"><img src="assets/br_deck_1_slider_c.jpg" alt="Deck Slide C"></a>
-      <a href="assets/br_logo_1_a.png"><img src="assets/br_logo_1_a.png" alt="Logo 1A"></a>
-      <a href="assets/br_logo_1_b.png"><img src="assets/br_logo_1_b.png" alt="Logo 1B"></a>
-      <video src="assets/br_reel_1.mp4" controls playsinline></video>
-      <video src="assets/br_reel_2.mp4" controls playsinline></video>
-    </div>
-
-    <h2>Social Media</h2>
-    <div class="gallery">
-      <a href="assets/sm_carousel_1_cover.jpg"><img src="assets/sm_carousel_1_cover.jpg" alt="Carousel Cover"></a>
-      <a href="assets/sm_carousel_1_slider_b.jpg"><img src="assets/sm_carousel_1_slider_b.jpg" alt="Carousel Slide B"></a>
-      <a href="assets/sm_carousel_2_cover.jpg"><img src="assets/sm_carousel_2_cover.jpg" alt="Carousel Cover 2"></a>
-      <a href="assets/sm_static_1.jpg"><img src="assets/sm_static_1.jpg" alt="Static 1"></a>
-      <a href="assets/sm_static_2.jpg"><img src="assets/sm_static_2.jpg" alt="Static 2"></a>
-    </div>
-
-    <h2>Textures</h2>
-    <div class="gallery">
-      <a href="assets/texture_bg_1.jpg"><img src="assets/texture_bg_1.jpg" alt="Texture 1 ></a>
-      <a href="assets/texture_bg_2.jpg"><img src="assets/texture_bg_2.jpg" alt="Texture 2"></a>
-      <a href="assets/texture_bg_3.jpg"><img src="assets/texture_bg_3.jpg" alt="Texture 3"></a>
-    </div>
-
-    <h2>Work In Progress</h2>
-    <div class="gallery">
-      <video src="assets/wip_1.mp4" controls playsinline></video>
-      <video src="assets/wip_2.mp4" controls playsinline></video>
-      <video src="assets/wip_3.mp4" controls playsinline></video>
-      <a href="assets/wip_mascots.png"><img src="assets/wip_mascots.png" alt="Mascots"></a>
-      <a href="assets/wip_songcover.png"><img src="assets/wip_songcover.png" alt="Songcover"></a>
+    <div class="asset-stack">
+      <img src="assets/alk_d1.jpg" alt="Alienkind Title">
+      <video src="assets/alk_logo.mp4" autoplay loop muted playsinline></video>
+      <img src="assets/alk_d5.jpg" alt="Narrative">
+      <img src="assets/alk_d6.jpg" alt="Visual Language">
+      <video src="assets/alk_ascii.mp4" autoplay loop muted playsinline></video>
+      <img src="assets/alk_d7.jpg" alt="Operations">
+      <img src="assets/alk_d8.jpg" alt="Contact Slide">
     </div>
   </section>
 
-  <!-- CONTACT FOOTER -->
+  <section id="aqi-visualizer">
+    <h2>Environmental Data Visualizer</h2>
+    <div class="description-scroll">
+      <p><strong>Technical Logic:</strong> A functional reality check for urban air quality. This system maps real-time AQI API 
+      data to generative textures, shifting from clean nocturnal blues to high-pollution warning reds based on city-specific data inputs.</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-item">
+        <video src="assets/aqi_green.mp4" autoplay loop muted playsinline></video>
+        <div class="item-label">Safe AQI (Green)</div>
+      </div>
+      <div class="gallery-item">
+        <video src="assets/aqi_blue.mp4" autoplay loop muted playsinline></video>
+        <div class="item-label">Moderate / Night (Blue)</div>
+      </div>
+      <div class="gallery-item">
+        <video src="assets/aqi_red.mp4" autoplay loop muted playsinline></video>
+        <div class="item-label">Hazardous AQI (Red)</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="td-sketches">
+    <h2>TouchDesigner Studies</h2>
+    <div class="gallery">
+      <div class="gallery-item">
+        <video src="assets/hand_tracking.mp4.mp4" autoplay loop muted playsinline></video>
+        <div class="item-label">Hand Tracking & Blur</div>
+      </div>
+      <div class="gallery-item">
+        <video src="assets/god_particle_linetracking.mp4" autoplay loop muted playsinline></video>
+        <div class="item-label">God Particle Linetracking</div>
+      </div>
+      <div class="gallery-item">
+        <video src="assets/lakozy_snippets_lobby_pixel_sort.mp4" autoplay loop muted playsinline></video>
+        <div class="item-label">Pixel Sorting Algorithms</div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    contact me at <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a> · 8368118218
+    contact me at <a href="mailto:dolmarajkhowa@gmail.com">dolmarajkhowa@gmail.com</a>
   </footer>
 
 </body>
