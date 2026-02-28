@@ -14,15 +14,42 @@
     nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); display: flex; justify-content: center; gap: 2rem; padding: 1.2rem; font-family: var(--pixel); z-index: 1000; border-bottom: 1px solid var(--accent); }
     nav a { color: var(--ink); text-decoration: none; font-size: 1rem; }
     nav a:hover { color: var(--accent); }
-    section { max-width: 900px; margin: 0 auto 4rem; padding: 0 1rem; }
+    section { max-width: 1000px; margin: 0 auto 4rem; padding: 0 1rem; }
     h2 { font-family: var(--pixel); color: var(--accent); text-transform: uppercase; text-align: center; font-size: 1.8rem; margin-bottom: 2rem; }
+    
+    /* Dynamic Masonry Layout - No Grey Borders or Padding */
+    .gallery {
+      column-count: 3;
+      column-gap: 15px;
+      width: 100%;
+    }
+    @media (max-width: 800px) { .gallery { column-count: 2; } }
+    @media (max-width: 500px) { .gallery { column-count: 1; } }
+    
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 15px;
+      position: relative;
+    }
+    .gallery img, .gallery video {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* Removed all borders and backgrounds for a perfectly flush look */
+    }
+    .item-label { 
+      font-family: var(--pixel); 
+      font-size: 0.8rem; 
+      margin-top: 4px; 
+      color: #666; 
+      text-align: left; 
+      word-wrap: break-word; 
+    }
+    
     .description-scroll { max-height: 180px; overflow-y: auto; background: #111; padding: 15px; margin-bottom: 30px; border-left: 4px solid var(--accent); font-size: 0.95rem; }
-    .asset-stack { display: flex; flex-direction: column; gap: 2rem; }
-    .asset-stack img, .asset-stack video { width: 100%; height: auto; border: 1px solid var(--accent); }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .gallery-item { border: 1px solid #333; padding: 10px; background: rgba(255,255,255,0.03); }
-    .gallery img, .gallery video { width: 100%; height: auto; border: 1px solid var(--accent); }
-    .item-label { font-family: var(--pixel); font-size: 0.8rem; margin-top: 8px; color: #888; text-align: center; word-wrap: break-word; }
+    .asset-stack { display: flex; flex-direction: column; gap: 15px; }
+    .asset-stack img, .asset-stack video { width: 100%; height: auto; display: block; }
+    
     footer { text-align: center; padding: 3rem 1rem; font-family: var(--pixel); opacity: 0.7; }
   </style>
 </head>
@@ -35,10 +62,7 @@
   </nav>
 
   <section id="alienkind">
-    <h2>Alienkind Concept Deck</h2>
-    <div class="description-scroll">
-      <p><strong>Creative Direction:</strong> Continuing the established alien invasion lore, this project reframes the brand through a biological lens. It utilizes generative visuals to simulate organic, bio-scopic textures, acting as leaked research files that position the product as a biological upgrade rather than a standard consumer good.</p>
-    </div>
+    <h2>Alienkind: Concept Deck</h2>
     <div class="asset-stack">
       <img src="assets/alk_d1.jpg" alt="Alienkind Title">
       <video src="assets/alk_logo.mp4" autoplay loop muted playsinline></video>
@@ -55,10 +79,9 @@
     <div class="description-scroll">
       <p><strong>Technical Logic:</strong> A real-time environmental visualizer engineered in TouchDesigner. It connects to a free AQI API to control generative feedback switches, dynamically shifting visual states across green, yellow, blue, and red thresholds. The underlying logic is highly customizable, with the potential to be adapted for localized weather mapping or time-of-day parameters.</p>
     </div>
-    <div class="gallery">
-      <div class="gallery-item">
-        <video src="assets/aqi_base_mesh.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Base Mesh</div>
+    <div class="gallery" style="column-count: 2;"> <div class="gallery-item">
+        <video src="assets/aqi_base_mosh.mp4" autoplay loop muted playsinline></video>
+        <div class="item-label">Base Mosh</div>
       </div>
       <div class="gallery-item">
         <video src="assets/aqi_green.mp4" autoplay loop muted playsinline></video>
