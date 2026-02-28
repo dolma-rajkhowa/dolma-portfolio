@@ -11,43 +11,44 @@
     :root { 
       --bg: #ffffff; 
       --ink: #000000; 
-      --accent: #000000; 
       --body: 'Orbit', sans-serif; 
       --pixel: 'Pixlefy', monospace; 
     }
     
+    /* Absolute zero-spacing reset */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1; }
+    html, body { background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1; width: 100%; overflow-x: hidden; }
+    h1, h2, h3, p, a { margin: 0; padding: 0; }
     
-    nav { width: 100%; background: var(--bg); display: flex; justify-content: space-around; font-family: var(--pixel); border-bottom: 1px solid var(--ink); z-index: 1000; }
-    nav a { color: var(--ink); text-decoration: none; font-size: 1rem; text-transform: lowercase; display: block; width: 100%; text-align: center; }
+    nav { width: 100%; background: var(--bg); display: flex; font-family: var(--pixel); border-bottom: 1px solid var(--ink); z-index: 1000; }
+    nav a { color: var(--ink); text-decoration: none; font-size: 1rem; text-transform: lowercase; width: 100%; text-align: center; }
     
-    section { width: 100%; margin: 0; padding: 0; border-bottom: 1px solid var(--ink); }
-    h2 { font-family: var(--pixel); color: var(--ink); text-transform: uppercase; text-align: left; font-size: 1.5rem; margin: 0; padding: 0; border-bottom: 1px solid var(--ink); }
+    section { width: 100%; border-bottom: 1px solid var(--ink); }
+    h2 { font-family: var(--pixel); color: var(--ink); text-transform: uppercase; text-align: left; font-size: 1.5rem; border-bottom: 1px solid var(--ink); }
     
-    .description-scroll { max-height: 180px; overflow-y: auto; background: var(--bg); padding: 0; margin: 0; font-size: 0.95rem; line-height: 1.2; }
+    .description-scroll { max-height: 180px; overflow-y: auto; background: var(--bg); font-size: 0.95rem; line-height: 1; }
     
-    .hero-asset { width: 100%; margin: 0; display: block; position: relative; }
+    /* Layouts based on intrinsic dimensions */
+    .hero-asset { width: 100%; display: block; position: relative; }
     .masonry { column-count: 2; column-gap: 0; }
-    .masonry-item { break-inside: avoid; margin: 0; padding: 0; position: relative; display: block; }
-    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 0; padding: 0; }
+    .masonry-item { break-inside: avoid; position: relative; display: block; width: 100%; }
+    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
     
-    img, video { width: 100%; height: auto; display: block; object-fit: contain; }
+    img, video { width: 100%; height: auto; display: block; }
 
     .item-label { 
       position: absolute; bottom: 0; left: 0; right: 0; 
       background: var(--bg); color: var(--ink); 
       font-family: var(--pixel); font-size: 0.75rem; 
-      padding: 0; margin: 0; text-transform: uppercase;
-      opacity: 0; transition: opacity 0.3s ease; 
+      text-transform: uppercase; opacity: 0; 
+      transition: opacity 0.3s ease; 
       border-top: 1px solid var(--ink); pointer-events: none; 
     }
     .masonry-item:hover .item-label, .hero-asset:hover .item-label { opacity: 1; }
 
     @media (max-width: 768px) { .masonry { column-count: 1; } .grid-2col { grid-template-columns: 1fr; } }
     
-    footer { text-align: center; padding: 0; margin: 0; font-family: var(--pixel); font-size: 0.8rem; border-top: 1px solid var(--ink); }
+    footer { text-align: center; font-family: var(--pixel); font-size: 0.8rem; border-top: 1px solid var(--ink); }
   </style>
 </head>
 <body>
@@ -102,12 +103,13 @@
       <div class="masonry-item"><img src="assets/image_pixel_melt.jpg" alt="Pixel Melt"><div class="item-label">Pixel Melt</div></div>
       <div class="masonry-item"><img src="assets/pixel resort ss.jpg" alt="Pixel Resort"><div class="item-label">Pixel Resort</div></div>
       
+      <div class="masonry-item"><video src="assets/400_glitters.mp4" preload="none" muted playsinline loop></video><div class="item-label">400 Glitters</div></div>
       <div class="masonry-item"><video src="assets/fry.mp4" preload="none" muted playsinline loop></video><div class="item-label">Fry</div></div>
-      <div class="masonry-item"><video src="assets/green_blobs.mp4" preload="none" muted playsinline loop></video><div class="item-label">Green Blobs</div></div>
+      <div class="masonry-item"><img src="assets/green_blobs.jpg" alt="Green Blobs"><div class="item-label">Green Blobs</div></div>
       <div class="masonry-item"><video src="assets/hand_tracking.mp4" preload="none" muted playsinline loop></video><div class="item-label">Hand Tracking</div></div>
       <div class="masonry-item"><video src="assets/hazel_eyes.mp4" preload="none" muted playsinline loop></video><div class="item-label">Hazel Eyes</div></div>
       <div class="masonry-item"><video src="assets/stair_ex.mp4" preload="none" muted playsinline loop></video><div class="item-label">Stair EX</div></div>
-      <div class="masonry-item"><video src="assets/strawberry.mp4" preload="none" muted playsinline loop></video><div class="item-label">Strawberry</div></div>
+      <div class="masonry-item"><video src="assets/starwberry.mp4" preload="none" muted playsinline loop></video><div class="item-label">Strawberry</div></div>
       <div class="masonry-item"><video src="assets/whirlpool.mp4" preload="none" muted playsinline loop></video><div class="item-label">Whirlpool</div></div>
     </div>
 
@@ -140,4 +142,72 @@
     </div>
   </section>
 
-  <section id="social
+  <section id="socials">
+    <h2>Social Media Assets</h2>
+    <div class="grid-2col">
+      <img src="assets/sm_carousel_1_cover.jpg">
+      <img src="assets/sm_carousel_1_slider_b.jpg">
+      <img src="assets/sm_carousel_2_cover.jpg">
+      <img src="assets/sm_carousel_2_slider_b.png">
+      <img src="assets/sm_carousel_2_slider_c.png">
+      <img src="assets/sm_static_1.jpg">
+      <img src="assets/sm_static_2.jpg">
+      <img src="assets/sm_static_3.jpg">
+      <img src="assets/sm_static_4_poster.png">
+      <img src="assets/sm_static_5_poster.jpg">
+    </div>
+  </section>
+
+  <section id="textures">
+    <h2>Textures</h2>
+    <div class="grid-2col">
+      <img src="assets/texture_bg_1.jpg">
+      <img src="assets/texture_bg_2.jpg">
+      <img src="assets/texture_bg_3.jpg">
+    </div>
+  </section>
+
+  <section id="misc">
+    <h2>Explorations & Misc</h2>
+    <div class="grid-2col">
+      <video src="assets/wip_1.mp4" preload="none" muted playsinline loop></video>
+      <video src="assets/wip_2.mp4" preload="none" muted playsinline loop></video>
+      <video src="assets/wip_3.mp4" preload="none" muted playsinline loop></video>
+      <img src="assets/wip_mascots.png">
+      <img src="assets/wip_songcover.png">
+      <img src="assets/wip_static_1.jpg">
+      <img src="assets/br_logo_1_a.png">
+      <img src="assets/br_logo_1_b.png">
+      <video src="assets/br_reel_1.mp4" preload="none" muted playsinline loop></video>
+      <video src="assets/br_reel_2.mp4" preload="none" muted playsinline loop></video>
+      <img src="assets/visualinspo_1.png">
+      <img src="assets/visualinspo_2.png">
+    </div>
+  </section>
+
+  <footer>
+    dolma rajkhowa
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videos = document.querySelectorAll('video');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.play().catch(e => {}); 
+          } else {
+            entry.target.pause();
+            entry.target.currentTime = 0;
+          }
+        });
+      }, { threshold: 0.1 }); 
+
+      videos.forEach(video => {
+        observer.observe(video);
+      });
+    });
+  </script>
+
+</body>
+</html>
