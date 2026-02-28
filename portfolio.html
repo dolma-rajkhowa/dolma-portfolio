@@ -21,9 +21,9 @@
     section { max-width: 1200px; margin: 0 auto 5rem; padding: 0 1rem; }
     h2 { font-family: var(--pixel); color: var(--accent); text-transform: uppercase; text-align: left; font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
     
-    /* Native Aspect Ratio Layout (Vertical Fit & Fix) */
+    /* 2-Column Masonry (Makes Verticals Larger) */
     .masonry {
-      column-count: 3;
+      column-count: 2;
       column-gap: 15px;
     }
     .masonry-item {
@@ -33,14 +33,14 @@
       background: #000;
     }
     
-    /* Exact Dimension Scaling */
-    .masonry-item img, .masonry-item video, .grid-2col img, .grid-2col video, .hero-asset video {
+    /* Uncropped Dimensional Scaling */
+    .masonry-item img, .masonry-item video, .grid-2col img, .grid-2col video, .medium-asset video {
       width: 100%;
-      height: auto; /* Guarantees zero cropping on all assets */
+      height: auto; 
       display: block;
     }
     
-    /* Hover Labels for Grid Items */
+    /* Hover Labels */
     .item-label { 
       position: absolute; 
       bottom: 0; left: 0; right: 0; 
@@ -53,33 +53,26 @@
       opacity: 0;
       transition: opacity 0.3s ease; 
       border-top: 1px solid var(--accent);
+      pointer-events: none; /* Prevents label from blocking the play button */
     }
     .masonry-item:hover .item-label { opacity: 1; }
     
-    /* 2-Column strict layout for Decks & Small Assets */
+    /* 2-Column strict layout */
     .grid-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 15px;
+      margin-bottom: 15px;
     }
     
-    /* Single Horizontal Layout (Span Full Width) */
-    .hero-asset {
-      width: 100%;
-      margin-bottom: 15px;
-      position: relative;
-    }
-    .hero-label {
-      font-family: var(--pixel); 
-      font-size: 0.8rem; 
-      color: #888; 
-      margin-top: 5px; 
-      text-transform: uppercase;
+    /* Container for isolated logos to prevent infinite stretching */
+    .medium-asset {
+      max-width: 600px;
+      margin: 0 auto 15px auto;
     }
 
     /* Mobile Overrides */
-    @media (max-width: 800px) { .masonry { column-count: 2; } }
-    @media (max-width: 500px) { .masonry { column-count: 1; } .grid-2col { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .masonry { column-count: 1; } .grid-2col { grid-template-columns: 1fr; } }
     
     footer { text-align: center; padding: 3rem 1rem; font-family: var(--pixel); opacity: 0.5; font-size: 0.8rem; }
   </style>
@@ -94,14 +87,14 @@
 
   <section id="alienkind">
     <h2>Alienkind Concept Deck</h2>
-    <div class="hero-asset">
-      <video src="assets/alk_logo.mp4" autoplay loop muted playsinline></video>
+    <div class="medium-asset">
+      <video src="assets/alk_logo.mp4" preload="metadata" controls muted playsinline></video>
     </div>
     <div class="grid-2col">
       <img src="assets/alk_d1.jpg" alt="Title Slide">
       <img src="assets/alk_d5.jpg" alt="Slide 5">
       <img src="assets/alk_d6.jpg" alt="Slide 6">
-      <video src="assets/alk_ascii.mp4" autoplay loop muted playsinline></video>
+      <video src="assets/alk_ascii.mp4" preload="metadata" controls muted playsinline></video>
       <img src="assets/alk_d7.jpg" alt="Slide 7">
       <img src="assets/alk_d8.jpg" alt="Slide 8">
     </div>
@@ -109,22 +102,18 @@
 
   <section id="aqi-visualizer">
     <h2>AQI Visualiser</h2>
-    <div class="masonry" style="column-count: 2;">
-      <div class="masonry-item">
-        <video src="assets/aqi_base_mosh.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Base Mosh</div>
+    <div class="grid-2col">
+      <div style="position:relative;">
+        <video src="assets/aqi_base_mosh.mp4" preload="metadata" controls muted playsinline></video>
       </div>
-      <div class="masonry-item">
-        <video src="assets/aqi_green.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Safe Threshold (Green)</div>
+      <div style="position:relative;">
+        <video src="assets/aqi_green.mp4" preload="metadata" controls muted playsinline></video>
       </div>
-      <div class="masonry-item">
-        <video src="assets/aqi_blue.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Moderate Threshold (Blue)</div>
+      <div style="position:relative;">
+        <video src="assets/aqi_blue.mp4" preload="metadata" controls muted playsinline></video>
       </div>
-      <div class="masonry-item">
-        <video src="assets/aqi_red.mp4" autoplay loop muted playsinline></video>
-        <div class="item-label">Hazardous Threshold (Red)</div>
+      <div style="position:relative;">
+        <video src="assets/aqi_red.mp4" preload="metadata" controls muted playsinline></video>
       </div>
     </div>
   </section>
@@ -133,35 +122,26 @@
     <h2>TouchDesigner Visuals</h2>
     
     <div class="masonry">
-      <div class="masonry-item"><video src="assets/lobby_pixelsorting.mp4" autoplay loop muted playsinline></video><div class="item-label">Lobby Sort</div></div>
-      <div class="masonry-item"><video src="assets/man_pixelsorting.mp4" autoplay loop muted playsinline></video><div class="item-label">Man Sort</div></div>
-      <div class="masonry-item"><video src="assets/pixel_mash_ugc.mp4" autoplay loop muted playsinline></video><div class="item-label">Pixel Mash</div></div>
-      <div class="masonry-item"><video src="assets/colourberry_pixelsorting.mp4" autoplay loop muted playsinline></video><div class="item-label">Colourberry Sort</div></div>
+      <div class="masonry-item"><video src="assets/lobby_pixelsorting.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Lobby Sort 1</div></div>
+      <div class="masonry-item"><video src="assets/man_pixelsorting.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Man Sort</div></div>
+      <div class="masonry-item"><video src="assets/pixel_mash_ugc.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Lobby Sort 2</div></div>
+      <div class="masonry-item"><video src="assets/colourberry_pixelsorting.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Colourberry Sort</div></div>
       
-      <div class="masonry-item"><video src="assets/fry.mp4" autoplay loop muted playsinline></video><div class="item-label">Fry</div></div>
-      <div class="masonry-item"><video src="assets/green_blobs.mp4" autoplay loop muted playsinline></video><div class="item-label">Green Blobs</div></div>
-      <div class="masonry-item"><video src="assets/hand_tracking.mp4.mp4" autoplay loop muted playsinline></video><div class="item-label">Hand Tracking</div></div>
-      <div class="masonry-item"><video src="assets/hazel_eyes.mp4" autoplay loop muted playsinline></video><div class="item-label">Hazel Eyes</div></div>
+      <div class="masonry-item"><video src="assets/fry.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Fry</div></div>
+      <div class="masonry-item"><video src="assets/green_blobs.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Green Blobs</div></div>
+      <div class="masonry-item"><video src="assets/hand_tracking.mp4.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Hand Tracking</div></div>
+      <div class="masonry-item"><video src="assets/hazel_eyes.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Hazel Eyes</div></div>
       <div class="masonry-item"><img src="assets/image_pixel_melt.jpg" alt="Pixel Melt"><div class="item-label">Pixel Melt</div></div>
       <div class="masonry-item"><img src="assets/pixel resort ss.jpg" alt="Pixel Resort"><div class="item-label">Pixel Resort</div></div>
-      <div class="masonry-item"><video src="assets/stair_ex.mp4" autoplay loop muted playsinline></video><div class="item-label">Stair EX</div></div>
-      <div class="masonry-item"><video src="assets/starwberry.mp4" autoplay loop muted playsinline></video><div class="item-label">Strawberry</div></div>
-      <div class="masonry-item"><video src="assets/whirlpool.mp4" autoplay loop muted playsinline></video><div class="item-label">Whirlpool</div></div>
+      <div class="masonry-item"><video src="assets/stair_ex.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Stair EX</div></div>
+      <div class="masonry-item"><video src="assets/starwberry.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Strawberry</div></div>
+      <div class="masonry-item"><video src="assets/whirlpool.mp4" preload="metadata" controls muted playsinline></video><div class="item-label">Whirlpool</div></div>
     </div>
 
-    <div style="margin-top: 30px;">
-      <div class="hero-asset">
-        <video src="assets/god_particle_linetracking.mp4" autoplay loop muted playsinline></video>
-        <div class="hero-label">God Particle Linetracking</div>
-      </div>
-      <div class="hero-asset">
-        <video src="assets/line_build.mp4" autoplay loop muted playsinline></video>
-        <div class="hero-label">Line Build</div>
-      </div>
-      <div class="hero-asset">
-        <video src="assets/turtle_chrome.mp4" autoplay loop muted playsinline></video>
-        <div class="hero-label">Turtle Chrome</div>
-      </div>
+    <div class="grid-2col" style="margin-top: 15px;">
+      <video src="assets/god_particle_linetracking.mp4" preload="metadata" controls muted playsinline></video>
+      <video src="assets/line_build.mp4" preload="metadata" controls muted playsinline></video>
+      <video src="assets/turtle_chrome.mp4" preload="metadata" controls muted playsinline></video>
     </div>
   </section>
 
@@ -198,26 +178,26 @@
 
   <section id="textures">
     <h2>Textures</h2>
-    <div class="masonry">
-      <div class="masonry-item"><img src="assets/texture_bg_1.jpg"></div>
-      <div class="masonry-item"><img src="assets/texture_bg_2.jpg"></div>
-      <div class="masonry-item"><img src="assets/texture_bg_3.jpg"></div>
+    <div class="grid-2col">
+      <img src="assets/texture_bg_1.jpg">
+      <img src="assets/texture_bg_2.jpg">
+      <img src="assets/texture_bg_3.jpg">
     </div>
   </section>
 
   <section id="misc">
     <h2>Explorations & Misc</h2>
     <div class="masonry">
-      <div class="masonry-item"><video src="assets/wip_1.mp4" autoplay loop muted playsinline></video></div>
-      <div class="masonry-item"><video src="assets/wip_2.mp4" autoplay loop muted playsinline></video></div>
-      <div class="masonry-item"><video src="assets/wip_3.mp4" autoplay loop muted playsinline></video></div>
+      <div class="masonry-item"><video src="assets/wip_1.mp4" preload="metadata" controls muted playsinline></video></div>
+      <div class="masonry-item"><video src="assets/wip_2.mp4" preload="metadata" controls muted playsinline></video></div>
+      <div class="masonry-item"><video src="assets/wip_3.mp4" preload="metadata" controls muted playsinline></video></div>
       <div class="masonry-item"><img src="assets/wip_mascots.png"></div>
       <div class="masonry-item"><img src="assets/wip_songcover.png"></div>
       <div class="masonry-item"><img src="assets/wip_static_1.jpg"></div>
       <div class="masonry-item"><img src="assets/br_logo_1_a.png"></div>
       <div class="masonry-item"><img src="assets/br_logo_1_b.png"></div>
-      <div class="masonry-item"><video src="assets/br_reel_1.mp4" autoplay loop muted playsinline></video></div>
-      <div class="masonry-item"><video src="assets/br_reel_2.mp4" autoplay loop muted playsinline></video></div>
+      <div class="masonry-item"><video src="assets/br_reel_1.mp4" preload="metadata" controls muted playsinline></video></div>
+      <div class="masonry-item"><video src="assets/br_reel_2.mp4" preload="metadata" controls muted playsinline></video></div>
       <div class="masonry-item"><img src="assets/visualinspo_1.png"></div>
       <div class="masonry-item"><img src="assets/visualinspo_2.png"></div>
     </div>
