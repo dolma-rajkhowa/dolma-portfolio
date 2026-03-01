@@ -15,20 +15,39 @@
       --pixel: 'Pixlefy', monospace; 
     }
     
-    /* Absolute zero-spacing reset */
+    /* Absolute zero-spacing reset for layout integrity */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1; width: 100%; overflow-x: hidden; }
+    
+    html, body { 
+      background-color: var(--bg);
+      background-image: url('assets/noise1.jpg'); /* Converted from .tiff for web support */
+      background-size: cover;
+      background-attachment: fixed;
+      color: var(--ink); 
+      font-family: var(--body); 
+      line-height: 1; 
+      width: 100%; 
+      overflow-x: hidden; 
+    }
+    
     h1, h2, h3, p, a { margin: 0; padding: 0; }
     
     nav { width: 100%; background: var(--bg); display: flex; font-family: var(--pixel); border-bottom: 1px solid var(--ink); z-index: 1000; }
-    nav a { color: var(--ink); text-decoration: none; font-size: 1rem; text-transform: lowercase; width: 100%; text-align: center; }
+    nav a { color: var(--ink); text-decoration: none; font-size: 1.2rem; text-transform: lowercase; width: 100%; text-align: center; padding: 5px 0; }
     
     section { width: 100%; border-bottom: 1px solid var(--ink); }
-    h2 { font-family: var(--pixel); color: var(--ink); text-transform: uppercase; text-align: left; font-size: 1.5rem; border-bottom: 1px solid var(--ink); }
+    h2 { font-family: var(--pixel); color: var(--ink); text-transform: uppercase; text-align: left; font-size: 2rem; border-bottom: 1px solid var(--ink); padding: 5px; background: var(--bg); }
     
-    .description-scroll { max-height: 180px; overflow-y: auto; background: var(--bg); font-size: 0.95rem; line-height: 1; }
+    /* Increased font sizes and added space only after the text block */
+    .description-scroll { 
+      background: var(--bg); 
+      font-size: 1.15rem; 
+      line-height: 1.4; 
+      padding: 10px;
+      margin-bottom: 2rem; 
+    }
     
-    /* Layouts based on intrinsic dimensions */
+    /* Layouts based on intrinsic dimensions with no gaps */
     .hero-asset { width: 100%; display: block; position: relative; }
     .masonry { column-count: 2; column-gap: 0; }
     .masonry-item { break-inside: avoid; position: relative; display: block; width: 100%; }
@@ -36,19 +55,40 @@
     
     img, video { width: 100%; height: auto; display: block; }
 
+    /* Permanent labels exclusively for AQI */
+    .aqi-container { position: relative; display: block; width: 100%; }
     .item-label { 
       position: absolute; bottom: 0; left: 0; right: 0; 
       background: var(--bg); color: var(--ink); 
-      font-family: var(--pixel); font-size: 0.75rem; 
-      text-transform: uppercase; opacity: 0; 
-      transition: opacity 0.3s ease; 
-      border-top: 1px solid var(--ink); pointer-events: none; 
+      font-family: var(--pixel); font-size: 1rem; 
+      text-transform: uppercase; text-align: center;
+      padding: 5px 0; border-top: 1px solid var(--ink); 
     }
-    .masonry-item:hover .item-label, .hero-asset:hover .item-label { opacity: 1; }
+
+    /* 80s Arcade Button Styling */
+    .arcade-btn-container { text-align: center; margin: 4rem 0 3rem 0; }
+    .arcade-btn {
+      display: inline-block;
+      font-family: var(--pixel);
+      color: var(--bg);
+      background: var(--ink);
+      border: 4px solid var(--ink);
+      padding: 15px 40px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+      transition: all 0.1s ease;
+    }
+    .arcade-btn:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+      background: #222;
+    }
 
     @media (max-width: 768px) { .masonry { column-count: 1; } .grid-2col { grid-template-columns: 1fr; } }
     
-    footer { text-align: center; font-family: var(--pixel); font-size: 0.8rem; border-top: 1px solid var(--ink); }
+    footer { text-align: center; font-family: var(--pixel); font-size: 1rem; border-top: 1px solid var(--ink); padding: 20px; background: var(--bg); line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -62,7 +102,7 @@
   <section id="alienkind">
     <h2>Alienkind: Concept Deck</h2>
     <div class="description-scroll">
-      <p>Continuing the established alien invasion lore, this project reframes the brand through a biological lens. It utilizes TouchDesigner generative feedback loops to simulate organic, bio-scopic textures. These visual assets act as leaked clinical research files, systematically positioning the product as a biological upgrade rather than a standard consumer commodity. The integration of glitch aesthetics and fluid simulations creates a symbiotic texture representing living data.</p>
+      <p>Instead of a standard product pitch, this visualizes the Alienkind brand as a biological upgrade. The visuals simulate organic textures and fluid glitches to look like leaked clinical research files. It is an exploration of living data, built to feel tactile and organic rather than like a traditional consumer commodity.</p>
     </div>
     
     <div class="hero-asset">
@@ -82,132 +122,12 @@
   <section id="aqi-visualizer">
     <h2>AQI Visualiser</h2>
     <div class="description-scroll">
-      <p>A functional, real-time environmental data visualizer engineered in TouchDesigner. This system fetches live parameters from a free AQI API to mathematically control generative feedback switches. It dynamically shifts visual states across safe (green), moderate (blue), and hazardous (red) thresholds based on localized data inputs. The underlying node architecture is highly modular, with the statistical potential to be adapted for localized weather mapping, humidity sensors, or time-of-day parameter shifting.</p>
+      <p>This is a real-time environmental visualizer. It pulls live air quality data for Mumbai and uses those numbers to drive the visuals. When the air is safe, the system shifts to green. As the air quality drops, it transitions to blue (moderate) and then red (hazardous). It's a way to see invisible environmental data as something physical and immediate.</p>
     </div>
     <div class="grid-2col">
-      <video src="assets/aqi_base_mosh.mp4" preload="none" muted playsinline loop></video>
-      <video src="assets/aqi_green.mp4" preload="none" muted playsinline loop></video>
-      <video src="assets/aqi_blue.mp4" preload="none" muted playsinline loop></video>
-      <video src="assets/aqi_red.mp4" preload="none" muted playsinline loop></video>
-    </div>
-  </section>
-
-  <section id="td-sketches">
-    <h2>TouchDesigner Visuals</h2>
-    
-    <div class="masonry">
-      <div class="masonry-item"><video src="assets/lobby_pixelsorting.mp4" preload="none" muted playsinline loop></video><div class="item-label">Lobby Sort 1</div></div>
-      <div class="masonry-item"><video src="assets/man_pixelsorting.mp4" preload="none" muted playsinline loop></video><div class="item-label">Man Sort</div></div>
-      <div class="masonry-item"><video src="assets/pixel_mash_ugc.mp4" preload="none" muted playsinline loop></video><div class="item-label">Lobby Sort 2</div></div>
-      <div class="masonry-item"><video src="assets/colourberry_pixelsorting.mp4" preload="none" muted playsinline loop></video><div class="item-label">Colourberry Sort</div></div>
-      <div class="masonry-item"><img src="assets/image_pixel_melt.jpg" alt="Pixel Melt"><div class="item-label">Pixel Melt</div></div>
-      <div class="masonry-item"><img src="assets/pixel resort ss.jpg" alt="Pixel Resort"><div class="item-label">Pixel Resort</div></div>
-      
-      <div class="masonry-item"><video src="assets/400_glitters.mp4" preload="none" muted playsinline loop></video><div class="item-label">400 Glitters</div></div>
-      <div class="masonry-item"><video src="assets/fry.mp4" preload="none" muted playsinline loop></video><div class="item-label">Fry</div></div>
-      <div class="masonry-item"><img src="assets/green_blobs.jpg" alt="Green Blobs"><div class="item-label">Green Blobs</div></div>
-      <div class="masonry-item"><video src="assets/hand_tracking.mp4" preload="none" muted playsinline loop></video><div class="item-label">Hand Tracking</div></div>
-      <div class="masonry-item"><video src="assets/hazel_eyes.mp4" preload="none" muted playsinline loop></video><div class="item-label">Hazel Eyes</div></div>
-      <div class="masonry-item"><video src="assets/stair_ex.mp4" preload="none" muted playsinline loop></video><div class="item-label">Stair EX</div></div>
-      <div class="masonry-item"><video src="assets/starwberry.mp4" preload="none" muted playsinline loop></video><div class="item-label">Strawberry</div></div>
-      <div class="masonry-item"><video src="assets/whirlpool.mp4" preload="none" muted playsinline loop></video><div class="item-label">Whirlpool</div></div>
-    </div>
-
-    <div class="hero-asset">
-      <video src="assets/god_particle_linetracking.mp4" preload="none" muted playsinline loop></video>
-      <div class="item-label">God Particle Linetracking</div>
-    </div>
-    <div class="hero-asset">
-      <video src="assets/line_build.mp4" preload="none" muted playsinline loop></video>
-      <div class="item-label">Line Build</div>
-    </div>
-    <div class="hero-asset">
-      <video src="assets/turtle_chrome.mp4" preload="none" muted playsinline loop></video>
-      <div class="item-label">Turtle Chrome</div>
-    </div>
-  </section>
-
-  <section id="decks">
-    <h2>Decks</h2>
-    <div class="grid-2col">
-      <img src="assets/pitch_deck_1_cover.jpg">
-      <img src="assets/pitch_deck_1_slider_b.jpg">
-      <img src="assets/pitch_deck_1_slider_c.jpg">
-      <img src="assets/br_deck_1_cover.jpg">
-      <img src="assets/br_deck_1_slider_b.jpg">
-      <img src="assets/br_deck_1_slider_c.jpg">
-      <img src="assets/br_deck_2_cover.jpg">
-      <img src="assets/br_deck_2_slider_b.png">
-      <img src="assets/br_deck_2_slider_c.png">
-    </div>
-  </section>
-
-  <section id="socials">
-    <h2>Social Media Assets</h2>
-    <div class="grid-2col">
-      <img src="assets/sm_carousel_1_cover.jpg">
-      <img src="assets/sm_carousel_1_slider_b.jpg">
-      <img src="assets/sm_carousel_2_cover.jpg">
-      <img src="assets/sm_carousel_2_slider_b.png">
-      <img src="assets/sm_carousel_2_slider_c.png">
-      <img src="assets/sm_static_1.jpg">
-      <img src="assets/sm_static_2.jpg">
-      <img src="assets/sm_static_3.jpg">
-      <img src="assets/sm_static_4_poster.png">
-      <img src="assets/sm_static_5_poster.jpg">
-    </div>
-  </section>
-
-  <section id="textures">
-    <h2>Textures</h2>
-    <div class="grid-2col">
-      <img src="assets/texture_bg_1.jpg">
-      <img src="assets/texture_bg_2.jpg">
-      <img src="assets/texture_bg_3.jpg">
-    </div>
-  </section>
-
-  <section id="misc">
-    <h2>Explorations & Misc</h2>
-    <div class="grid-2col">
-      <video src="assets/wip_1.mp4" preload="none" muted playsinline loop></video>
-      <video src="assets/wip_2.mp4" preload="none" muted playsinline loop></video>
-      <video src="assets/wip_3.mp4" preload="none" muted playsinline loop></video>
-      <img src="assets/wip_mascots.png">
-      <img src="assets/wip_songcover.png">
-      <img src="assets/wip_static_1.jpg">
-      <img src="assets/br_logo_1_a.png">
-      <img src="assets/br_logo_1_b.png">
-      <video src="assets/br_reel_1.mp4" preload="none" muted playsinline loop></video>
-      <video src="assets/br_reel_2.mp4" preload="none" muted playsinline loop></video>
-      <img src="assets/visualinspo_1.png">
-      <img src="assets/visualinspo_2.png">
-    </div>
-  </section>
-
-  <footer>
-    dolma rajkhowa
-  </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const videos = document.querySelectorAll('video');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.play().catch(e => {}); 
-          } else {
-            entry.target.pause();
-            entry.target.currentTime = 0;
-          }
-        });
-      }, { threshold: 0.1 }); 
-
-      videos.forEach(video => {
-        observer.observe(video);
-      });
-    });
-  </script>
-
-</body>
-</html>
+      <div class="aqi-container">
+        <video src="assets/aqi_base_mosh.mp4" preload="none" muted playsinline loop></video>
+        <div class="item-label">Base Mosh</div>
+      </div>
+      <div class="aqi-container">
+        <video src="assets/aqi_green.mp4" preload="none" muted playsinline loop></
