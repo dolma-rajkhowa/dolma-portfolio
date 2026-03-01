@@ -4,25 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>dolma | portfolio</title>
-  
-  <link rel="preload" as="image" href="assets/noise1.jpg">
 
   <style>
     @font-face { font-family: 'Orbit'; src: url('assets/font_orbit.ttf') format('truetype'); font-display: swap; }
     @font-face { font-family: 'Pixlefy'; src: url('assets/font_pixlefy.ttf') format('truetype'); font-display: swap; }
     
     :root { 
-      --bg: transparent; 
+      --bg: #000000; /* Strict fallback color to prevent invisible text */
       --ink: #ffffff; 
       --body: 'Orbit', sans-serif; 
       --pixel: 'Pixlefy', monospace; 
     }
     
+    /* Absolute zero-spacing reset for layout integrity */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     
     html, body { 
-      background-image: url('assets/noise1.jpg');
-      background-color: transparent;
+      background-color: var(--bg);
+      background-image: url('assets/noise1.jpg'); 
       background-size: cover;
       background-attachment: fixed;
       color: var(--ink); 
@@ -34,20 +33,21 @@
     
     h1, h2, h3, p, a { margin: 0; padding: 0; }
     
-    nav { width: 100%; background: transparent; display: flex; font-family: var(--pixel); border-bottom: 1px solid var(--ink); z-index: 1000; }
+    nav { width: 100%; background: var(--bg); display: flex; font-family: var(--pixel); border-bottom: 1px solid var(--ink); z-index: 1000; }
     nav a { color: var(--ink); text-decoration: none; font-size: 1.2rem; text-transform: lowercase; width: 100%; text-align: center; padding: 5px 0; }
     
     section { width: 100%; border-bottom: 1px solid var(--ink); }
-    h2 { font-family: var(--pixel); color: var(--ink); text-transform: uppercase; text-align: left; font-size: 2rem; border-bottom: 1px solid var(--ink); padding: 5px; background: transparent; }
+    h2 { font-family: var(--pixel); color: var(--ink); text-transform: uppercase; text-align: left; font-size: 2rem; border-bottom: 1px solid var(--ink); padding: 5px; background: var(--bg); }
     
     .description-scroll { 
-      background: transparent; 
+      background: rgba(0, 0, 0, 0.7); /* Slight dark overlay to ensure text is readable over noise */
       font-size: 1.15rem; 
       line-height: 1.4; 
       padding: 10px;
       margin-bottom: 2rem; 
     }
     
+    /* Layouts based on intrinsic dimensions with no gaps */
     .hero-asset { width: 100%; display: block; position: relative; }
     .masonry { column-count: 2; column-gap: 0; }
     .masonry-item { break-inside: avoid; position: relative; display: block; width: 100%; }
@@ -55,15 +55,17 @@
     
     img, video { width: 100%; height: auto; display: block; }
 
+    /* Permanent labels exclusively for AQI */
     .aqi-container { position: relative; display: block; width: 100%; }
     .item-label { 
       position: absolute; bottom: 0; left: 0; right: 0; 
-      background: rgba(0, 0, 0, 0.5); color: var(--ink); 
+      background: rgba(0, 0, 0, 0.8); color: var(--ink); 
       font-family: var(--pixel); font-size: 1rem; 
       text-transform: uppercase; text-align: center;
       padding: 5px 0; border-top: 1px solid var(--ink); 
     }
 
+    /* 80s Arcade Button Styling */
     .arcade-btn-container { text-align: center; margin: 4rem 0 3rem 0; }
     .arcade-btn {
       display: inline-block;
@@ -86,7 +88,7 @@
 
     @media (max-width: 768px) { .masonry { column-count: 1; } .grid-2col { grid-template-columns: 1fr; } }
     
-    footer { text-align: center; font-family: var(--pixel); font-size: 1rem; border-top: 1px solid var(--ink); padding: 20px; background: transparent; line-height: 1.5; }
+    footer { text-align: center; font-family: var(--pixel); font-size: 1rem; border-top: 1px solid var(--ink); padding: 20px; background: var(--bg); line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -156,4 +158,110 @@
       <div class="masonry-item"><video src="assets/400_glitters.mp4" preload="none" muted playsinline loop></video></div>
       <div class="masonry-item"><video src="assets/fry.mp4" preload="none" muted playsinline loop></video></div>
       <div class="masonry-item"><img src="assets/green_blobs.jpg" alt="Green Blobs"></div>
-      <div class="masonry-item"><video src="assets/hand_tracking.mp4" preload
+      <div class="masonry-item"><video src="assets/hand_tracking.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><video src="assets/hazel_eyes.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><video src="assets/stair_ex.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><video src="assets/strawberry.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><video src="assets/whirlpool.mp4" preload="none" muted playsinline loop></video></div>
+    </div>
+
+    <div class="hero-asset">
+      <video src="assets/god_particle_linetracking.mp4" preload="none" muted playsinline loop></video>
+    </div>
+    <div class="hero-asset">
+      <video src="assets/line_build.mp4" preload="none" muted playsinline loop></video>
+    </div>
+    <div class="hero-asset">
+      <video src="assets/turtle_chrome.mp4" preload="none" muted playsinline loop></video>
+    </div>
+  </section>
+
+  <section id="decks">
+    <h2>Decks</h2>
+    <div class="grid-2col">
+      <img src="assets/pitch_deck_1_cover.jpg">
+      <img src="assets/pitch_deck_1_slider_b.jpg">
+      <img src="assets/pitch_deck_1_slider_c.jpg">
+      <img src="assets/br_deck_1_cover.jpg">
+      <img src="assets/br_deck_1_slider_b.jpg">
+      <img src="assets/br_deck_1_slider_c.jpg">
+      <img src="assets/br_deck_2_cover.jpg">
+      <img src="assets/br_deck_2_slider_b.png">
+      <img src="assets/br_deck_2_slider_c.png">
+    </div>
+  </section>
+
+  <section id="socials">
+    <h2>Social Media Assets</h2>
+    <div class="grid-2col">
+      <img src="assets/sm_carousel_1_cover.jpg">
+      <img src="assets/sm_carousel_1_slider_b.jpg">
+      <img src="assets/sm_carousel_2_cover.jpg">
+      <img src="assets/sm_carousel_2_slider_b.png">
+      <img src="assets/sm_carousel_2_slider_c.png">
+      <img src="assets/sm_static_1.jpg">
+      <img src="assets/sm_static_2.jpg">
+      <img src="assets/sm_static_3.jpg">
+      <img src="assets/sm_static_4_poster.png">
+      <img src="assets/sm_static_5_poster.jpg">
+    </div>
+  </section>
+
+  <section id="textures">
+    <h2>Textures</h2>
+    <div class="grid-2col">
+      <img src="assets/texture_bg_1.jpg">
+      <img src="assets/texture_bg_2.jpg">
+      <img src="assets/texture_bg_3.jpg">
+    </div>
+  </section>
+
+  <section id="misc">
+    <h2>Explorations & Misc</h2>
+    <div class="grid-2col">
+      <video src="assets/wip_1.mp4" preload="none" muted playsinline loop></video>
+      <video src="assets/wip_2.mp4" preload="none" muted playsinline loop></video>
+      <video src="assets/wip_3.mp4" preload="none" muted playsinline loop></video>
+      <img src="assets/wip_mascots.png">
+      <img src="assets/wip_songcover.png">
+      <img src="assets/wip_static_1.jpg">
+      <img src="assets/br_logo_1_a.png">
+      <img src="assets/br_logo_1_b.png">
+      <video src="assets/br_reel_1.mp4" preload="none" muted playsinline loop></video>
+      <video src="assets/br_reel_2.mp4" preload="none" muted playsinline loop></video>
+      <img src="assets/visualinspo_1.png">
+      <img src="assets/visualinspo_2.png">
+    </div>
+  </section>
+
+  <div class="arcade-btn-container">
+    <a href="index.html" class="arcade-btn">Return to Home</a>
+  </div>
+
+  <footer>
+    dolma rajkhowa<br>
+    dolmarajkhowa@gmail.com | 8368118218
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videos = document.querySelectorAll('video');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.play().catch(e => {}); 
+          } else {
+            entry.target.pause();
+            entry.target.currentTime = 0;
+          }
+        });
+      }, { threshold: 0.1 }); 
+
+      videos.forEach(video => {
+        observer.observe(video);
+      });
+    });
+  </script>
+
+</body>
+</html>
