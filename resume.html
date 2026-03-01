@@ -9,85 +9,117 @@
     /* custom fonts */
     @font-face {
       font-family: 'Orbit';
-      src: url('font_orbit.ttf') format('truetype');
+      src: url('assets/font_orbit.ttf') format('truetype');
+      font-display: swap;
     }
     @font-face {
       font-family: 'Pixlefy';
-      src: url('font_pixlefy.ttf') format('truetype');
+      src: url('assets/font_pixlefy.ttf') format('truetype');
+      font-display: swap;
     }
 
     :root {
-      --bg: #050505;
-      --ink: #f7f7f7;
-      --accent: #ff2e2e;
+      --bg: #000000;
+      --ink: #ffffff;
+      --accent: #f7f7f7;
       --body: 'Orbit', sans-serif;
       --pixel: 'Pixlefy', monospace;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
+    
+    /* Absolute zero-spacing reset */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      min-height:100vh;
-      background: var(--bg) url('assets/port_bg.png') repeat fixed;
+    html, body {
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image: url('assets/noise1.jpg');
+      background-size: cover;
+      background-attachment: fixed;
       cursor: url('assets/port_cursor.png') 4 4, auto;
       color: var(--ink);
       font-family: var(--body);
-      font-size:20px; line-height:1.5; letter-spacing:.6px;
-      padding:2rem 1rem;
-      text-transform:lowercase;
+      font-size: 1.15rem; 
+      line-height: 1.4;
+      text-transform: lowercase;
+      width: 100%;
+      overflow-x: hidden;
     }
+
     h1 {
       font-family: var(--pixel);
-      font-size:2.5rem;
-      color: var(--accent);
-      text-align:center;
-      margin-bottom:1rem;
+      font-size: 2.5rem;
+      color: var(--ink);
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      background: rgba(0, 0, 0, 0.7);
+      border-bottom: 1px solid var(--ink);
     }
-    .contact {
-      text-align:center;
-      margin-bottom:2rem;
-      font-size:1rem;
-    }
-    .contact a { color:var(--ink); text-decoration:none; }
 
-    details {
-      border:1px solid var(--ink);
-      margin:1.25rem 0;
-      overflow:hidden;
+    .contact {
+      text-align: center;
+      font-size: 1.15rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      border-bottom: 1px solid var(--ink);
     }
+    .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+
+    /* Zero margin stacking for details */
+    details {
+      border-bottom: 1px solid var(--ink);
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
     summary {
       font-family: var(--pixel);
-      font-size:1rem;
-      letter-spacing:1px;
-      list-style:none;
-      cursor:pointer;
-      padding:0.75rem 1rem;
-      background: var(--bg);
-      position:relative;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+      list-style: none;
+      cursor: pointer;
+      padding: 15px 20px;
+      /* Flexbox logic keeps the +/- perfectly centered */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    summary::-webkit-details-marker { display:none }
+    
+    summary::-webkit-details-marker { display: none; }
+    
     summary::after {
-      content:'+';
-      position:absolute; right:1rem; top:0.75rem;
+      content: '+';
       font-family: var(--pixel);
+      font-size: 1.5rem; /* Scales the indicator up slightly for balance */
     }
-    details[open] summary::after { content:'–'; }
+    
+    details[open] summary::after { 
+      content: '–'; 
+    }
 
+    /* Space inside sections for readability, but no external margins */
     .section {
-      padding:0.75rem 1rem 1.5rem;
-      font-size:1rem;
+      padding: 0 20px 20px 20px;
+      font-size: 1.15rem;
     }
-    .section p { margin-bottom:1rem; }
-    .section ul { margin:0.75rem 0 1rem 1.25rem; list-style:none; }
+    
+    .section p { margin-bottom: 1rem; }
+    
+    .section ul { 
+      margin: 0.5rem 0 1.5rem 1.25rem; 
+      list-style: none; 
+    }
+    
     .section ul li {
-      margin-bottom:0.5rem;
-      position:relative;
-      padding-left:1.2rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.2rem;
     }
+    
     .section ul li::before {
-      content:'•';
-      position:absolute;
-      left:0;
-      color:var(--accent);
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--ink);
     }
   </style>
 </head>
@@ -112,6 +144,14 @@
   <details>
     <summary>work experience</summary>
     <div class="section">
+      <p><strong>adko · jr. graphic designer</strong> <em>(aug–dec 2025)</em></p>
+      <ul>
+        <li>developed menus, banners, and newsletters for hospitality brands like hyatt centric and radisson</li>
+        <li>produced social media and branding assets, learning to scale visual identity across diverse formats</li>
+        <li>managed technical exports, ensuring assets were correctly formatted for digital and print use</li>
+        <li>focused on workflow discipline, adapting personal output to meet professional agency timelines</li>
+      </ul>
+
       <p><strong>grump · social media intern</strong> <em>(mumbai · mar–apr 2025)</em></p>
       <ul>
         <li>created visual reference decks & moodboards for client reels</li>
@@ -138,7 +178,7 @@
         <li>managed ngo outreach & lead generation</li>
       </ul>
 
-      <p><strong>masters buddy · market research intern</strong> <em>(delhi· oct-dec 2023)</em></p>
+      <p><strong>masters buddy · market research intern</strong> <em>(delhi · oct-dec 2023)</em></p>
       <ul>
         <li>analysed competitor content & pricing strategies</li>
         <li>identified gaps in ad messaging & delivery</li>
@@ -169,7 +209,6 @@
       </ul>
 
       <p><strong>sceda drama club · club secretary</strong> <em>(2024)</em></p>
-    
       <ul>
         <li>directed original play at bhabha auditorium (800-seater)</li>
         <li>ran a production with &lt;10 people & ₹0 budget</li>
@@ -183,7 +222,7 @@
     <div class="section">
       <ul>
         <li><strong>visuals & design</strong>: canva · photoshop (basic) · layout systems · moodboarding</li>
-        <li><strong>video & motion</strong>: davinci resolve, inshort,vn · premiere/after effects (learning) · touchdesigner (learning)</li>
+        <li><strong>video & motion</strong>: davinci resolve, inshort, vn · premiere/after effects (learning) · touchdesigner (learning)</li>
         <li><strong>communication</strong>: caption writing · scripting · event coordination</li>
         <li><strong>research & strategy</strong>: social analytics · deck writing · outreach docs</li>
       </ul>
