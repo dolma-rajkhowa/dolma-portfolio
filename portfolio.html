@@ -4,23 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>dolma | portfolio</title>
+  
+  <link rel="preload" as="image" href="assets/noise1.jpg">
+
   <style>
     @font-face { font-family: 'Orbit'; src: url('assets/font_orbit.ttf') format('truetype'); font-display: swap; }
     @font-face { font-family: 'Pixlefy'; src: url('assets/font_pixlefy.ttf') format('truetype'); font-display: swap; }
     
     :root { 
-      --bg: #ffffff; 
-      --ink: #000000; 
+      --bg: transparent; 
+      --ink: #ffffff; 
       --body: 'Orbit', sans-serif; 
       --pixel: 'Pixlefy', monospace; 
     }
     
-    /* Absolute zero-spacing reset for layout integrity */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     
     html, body { 
-      background-color: var(--bg);
-      background-image: url('assets/noise1.jpg'); /* Converted from .tiff for web support */
+      background-image: url('assets/noise1.jpg');
+      background-color: transparent;
       background-size: cover;
       background-attachment: fixed;
       color: var(--ink); 
@@ -32,22 +34,20 @@
     
     h1, h2, h3, p, a { margin: 0; padding: 0; }
     
-    nav { width: 100%; background: var(--bg); display: flex; font-family: var(--pixel); border-bottom: 1px solid var(--ink); z-index: 1000; }
+    nav { width: 100%; background: transparent; display: flex; font-family: var(--pixel); border-bottom: 1px solid var(--ink); z-index: 1000; }
     nav a { color: var(--ink); text-decoration: none; font-size: 1.2rem; text-transform: lowercase; width: 100%; text-align: center; padding: 5px 0; }
     
     section { width: 100%; border-bottom: 1px solid var(--ink); }
-    h2 { font-family: var(--pixel); color: var(--ink); text-transform: uppercase; text-align: left; font-size: 2rem; border-bottom: 1px solid var(--ink); padding: 5px; background: var(--bg); }
+    h2 { font-family: var(--pixel); color: var(--ink); text-transform: uppercase; text-align: left; font-size: 2rem; border-bottom: 1px solid var(--ink); padding: 5px; background: transparent; }
     
-    /* Increased font sizes and added space only after the text block */
     .description-scroll { 
-      background: var(--bg); 
+      background: transparent; 
       font-size: 1.15rem; 
       line-height: 1.4; 
       padding: 10px;
       margin-bottom: 2rem; 
     }
     
-    /* Layouts based on intrinsic dimensions with no gaps */
     .hero-asset { width: 100%; display: block; position: relative; }
     .masonry { column-count: 2; column-gap: 0; }
     .masonry-item { break-inside: avoid; position: relative; display: block; width: 100%; }
@@ -55,40 +55,38 @@
     
     img, video { width: 100%; height: auto; display: block; }
 
-    /* Permanent labels exclusively for AQI */
     .aqi-container { position: relative; display: block; width: 100%; }
     .item-label { 
       position: absolute; bottom: 0; left: 0; right: 0; 
-      background: var(--bg); color: var(--ink); 
+      background: rgba(0, 0, 0, 0.5); color: var(--ink); 
       font-family: var(--pixel); font-size: 1rem; 
       text-transform: uppercase; text-align: center;
       padding: 5px 0; border-top: 1px solid var(--ink); 
     }
 
-    /* 80s Arcade Button Styling */
     .arcade-btn-container { text-align: center; margin: 4rem 0 3rem 0; }
     .arcade-btn {
       display: inline-block;
       font-family: var(--pixel);
-      color: var(--bg);
+      color: #000000;
       background: var(--ink);
       border: 4px solid var(--ink);
       padding: 15px 40px;
       text-decoration: none;
       text-transform: uppercase;
       font-size: 1.5rem;
-      box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+      box-shadow: 8px 8px 0px rgba(255,255,255,0.3);
       transition: all 0.1s ease;
     }
     .arcade-btn:hover {
       transform: translate(4px, 4px);
-      box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
-      background: #222;
+      box-shadow: 4px 4px 0px rgba(255,255,255,0.3);
+      background: #dddddd;
     }
 
     @media (max-width: 768px) { .masonry { column-count: 1; } .grid-2col { grid-template-columns: 1fr; } }
     
-    footer { text-align: center; font-family: var(--pixel); font-size: 1rem; border-top: 1px solid var(--ink); padding: 20px; background: var(--bg); line-height: 1.5; }
+    footer { text-align: center; font-family: var(--pixel); font-size: 1rem; border-top: 1px solid var(--ink); padding: 20px; background: transparent; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -130,4 +128,32 @@
         <div class="item-label">Base Mosh</div>
       </div>
       <div class="aqi-container">
-        <video src="assets/aqi_green.mp4" preload="none" muted playsinline loop></
+        <video src="assets/aqi_green.mp4" preload="none" muted playsinline loop></video>
+        <div class="item-label">Safe (Green)</div>
+      </div>
+      <div class="aqi-container">
+        <video src="assets/aqi_blue.mp4" preload="none" muted playsinline loop></video>
+        <div class="item-label">Moderate (Blue)</div>
+      </div>
+      <div class="aqi-container">
+        <video src="assets/aqi_red.mp4" preload="none" muted playsinline loop></video>
+        <div class="item-label">Hazardous (Red)</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="td-sketches">
+    <h2>TouchDesigner Visuals</h2>
+    
+    <div class="masonry">
+      <div class="masonry-item"><video src="assets/lobby_pixelsorting.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><video src="assets/man_pixelsorting.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><video src="assets/pixel_mash_ugc.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><video src="assets/colourberry_pixelsorting.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><img src="assets/image_pixel_melt.jpg" alt="Pixel Melt"></div>
+      <div class="masonry-item"><img src="assets/pixel resort ss.jpg" alt="Pixel Resort"></div>
+      
+      <div class="masonry-item"><video src="assets/400_glitters.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><video src="assets/fry.mp4" preload="none" muted playsinline loop></video></div>
+      <div class="masonry-item"><img src="assets/green_blobs.jpg" alt="Green Blobs"></div>
+      <div class="masonry-item"><video src="assets/hand_tracking.mp4" preload
