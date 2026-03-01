@@ -36,13 +36,18 @@
       align-items: center;
       text-align: center;
       
-      background: #000000 url('assets/noise1.jpg') repeat fixed center;
+      /* Explicitly split background properties to force rendering */
+      background-color: #000000;
+      background-image: url('assets/noise1.jpg');
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-position: center;
       background-size: cover;
       
       cursor: url('assets/port_cursor.png') 4 4, auto;
       color: var(--ink);
       font-family: var(--body);
-      font-size: 1.25rem; 
+      font-size: 24px; /* Hard-coded size increase */
       line-height: 1.5; 
       letter-spacing: .6px;
       padding: 1.5rem;
@@ -50,7 +55,7 @@
 
     h1 {
       font-family: var(--pixel);
-      font-size: 4.5rem; 
+      font-size: 80px; /* Hard-coded massive header */
       letter-spacing: 2px;
       color: var(--accent);
       margin-bottom: 1rem;
@@ -59,11 +64,11 @@
     }
 
     p {
-      max-width: 500px;
+      max-width: 600px;
       margin-bottom: 1rem;
       opacity: .9;
       text-transform: lowercase;
-      font-size: 1.25rem; 
+      font-size: 24px; /* Hard-coded size increase */
       text-shadow: 2px 2px 4px rgba(0,0,0,0.9); 
     }
 
@@ -73,7 +78,7 @@
 
     .btn {
       font-family: var(--pixel);
-      font-size: 1.5rem; 
+      font-size: 28px; /* Hard-coded larger button text */
       letter-spacing: 1px;
       display: inline-block;
       margin: .75rem;
