@@ -49,7 +49,6 @@
       color: var(--ink);
       text-align: center;
       padding: 2rem 0 1rem 0;
-      /* Reduced opacity to 30% */
       background: rgba(0, 0, 0, 0.3);
       border-bottom: 1px solid var(--ink);
     }
@@ -58,7 +57,6 @@
       text-align: center;
       font-size: 1.15rem;
       padding: 1rem;
-      /* Reduced opacity to 30% */
       background: rgba(0, 0, 0, 0.3);
       border-bottom: 1px solid var(--ink);
     }
@@ -68,7 +66,6 @@
     details {
       border-bottom: 1px solid var(--ink);
       width: 100%;
-      /* Reduced opacity to 30% */
       background: rgba(0, 0, 0, 0.3);
     }
     
@@ -122,6 +119,31 @@
       left: 0;
       color: var(--ink);
     }
+
+    /* 80s Arcade Button Styling */
+    .arcade-btn-container { 
+      text-align: center; 
+      margin: 3rem 0; 
+      background: transparent;
+    }
+    .arcade-btn {
+      display: inline-block;
+      font-family: var(--pixel);
+      color: #000000;
+      background: var(--ink);
+      border: 4px solid var(--ink);
+      padding: 15px 40px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      box-shadow: 8px 8px 0px rgba(255,255,255,0.3);
+      transition: all 0.1s ease;
+    }
+    .arcade-btn:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0px rgba(255,255,255,0.3);
+      background: #dddddd;
+    }
   </style>
 </head>
 <body>
@@ -135,10 +157,8 @@
   <details open>
     <summary>profile</summary>
     <div class="section">
-      <p>former economics undergrad. pretty chill about graphs, less chill about layouts.</p>
-      <p>i started out designing posters for a college fest and fell harder than expected; dropped out to focus on design. since then i’ve worked across social media, short-form edits, event visuals, and lately motion design & creative coding to expand what i can build.</p>
-      <p>during that process, i realised i can spot what good looks like; the hard part is building it myself. that’s the gap i’m closing through tools, decisions, and doing the work.</p>
-      <p>the goal is to build a creative system i can grow inside—where design, motion & code work together, not in silos.</p>
+      <p>hi, i’m a touchdesigner artist based in mumbai. as a former economics undergrad, i’m quite comfortable with graphs, though i’ve found a deeper focus in the mechanics of a layout. to me, it’s about taking the unorganized signals that surround us and turning them into something with a clear purpose. i design noise—using these raw inputs as a foundation to place intent behind every visual output, effectively translating a sequence of events into a readable language.</p>
+      <p>i’ve realized i can spot what good looks like; the hard part is building it myself. that’s the gap i’m closing through tools, decisions, and doing the work. i’m leaning into the technical friction of the build, prioritizing the structural logic of a system over the surface finish. the goal is to build a creative system i can grow inside, where design, motion, and code function together as a single logic instead of existing in silos. it’s a move from induction to execution, ensuring that the engine underneath is as honest as the final frame.</p>
     </div>
   </details>
 
@@ -240,6 +260,10 @@
       </ul>
     </div>
   </details>
+
+  <div class="arcade-btn-container">
+    <a href="index.html" class="arcade-btn">Return to Home</a>
+  </div>
 
 </body>
 </html>
