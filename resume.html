@@ -31,10 +31,8 @@
 
     html, body {
       min-height: 100vh;
-      background-color: var(--bg);
-      background-image: url('assets/noise1.jpg');
+      background: #000000 url('assets/noise1.jpg') repeat fixed center;
       background-size: cover;
-      background-attachment: fixed;
       cursor: url('assets/port_cursor.png') 4 4, auto;
       color: var(--ink);
       font-family: var(--body);
@@ -51,7 +49,8 @@
       color: var(--ink);
       text-align: center;
       padding: 2rem 0 1rem 0;
-      background: rgba(0, 0, 0, 0.7);
+      /* Reduced opacity to 30% */
+      background: rgba(0, 0, 0, 0.3);
       border-bottom: 1px solid var(--ink);
     }
 
@@ -59,7 +58,8 @@
       text-align: center;
       font-size: 1.15rem;
       padding: 1rem;
-      background: rgba(0, 0, 0, 0.7);
+      /* Reduced opacity to 30% */
+      background: rgba(0, 0, 0, 0.3);
       border-bottom: 1px solid var(--ink);
     }
     .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
@@ -68,7 +68,8 @@
     details {
       border-bottom: 1px solid var(--ink);
       width: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      /* Reduced opacity to 30% */
+      background: rgba(0, 0, 0, 0.3);
     }
     
     summary {
@@ -89,7 +90,7 @@
     summary::after {
       content: '+';
       font-family: var(--pixel);
-      font-size: 1.5rem; /* Scales the indicator up slightly for balance */
+      font-size: 1.5rem; 
     }
     
     details[open] summary::after { 
